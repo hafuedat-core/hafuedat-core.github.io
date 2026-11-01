@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zero-Trust Dokumenten-Verifikation</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 20px; }
+    .card { max-width: 800px; margin: 0 auto; background: #1e293b; padding: 24px; border-radius: 8px; border: 1px solid #334155; }
+    .status { padding: 12px; border-radius: 6px; margin-bottom: 16px; font-family: monospace; font-size: 0.9rem; }
+    .loading { background: #1e3a8a; color: #bfdbfe; }
+    .valid { background: #064e3b; color: #a7f3d0; border: 1px solid #10b981; }
+    .invalid { background: #7f1d1d; color: #fecaca; border: 1px solid #ef4444; }
+    iframe { width: 100%; height: 75vh; border: none; border-radius: 4px; background: #fff; display: none; }
+    .meta { font-size: 0.8rem; color: #94a3b8; word-break: break-all; margin-top: 12px; }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <h2>🔒 Zero-Trust Dokumenten-Prüfung</h2>
+  <div id="statusBox" class="status loading">Initialisiere kryptografische Sandbox...</div>
+  <iframe id="pdfViewer"></iframe>
+  <div class="meta" id="metaInfo"></div>
+</div>
+
+<script>
+const GENESIS_DID = "did:key:z6Mkfw3iLzZZ5H7jsRKs9fx1x9Ve4AcMNQjor3KCY216P8fa";
+const B58_ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+
+function decodeDidToEd25519Bytes(did) {
+  if (!did.startsWith("did:key:z")) throw new Error("Ungültiges DID-Format.");
+  const b58 = did.slice(9);
+  let bytes = [0];
+  for (let i = 0; i < b58.length; i++) {
+    const val = B58_ALPHABET.indexOf(b58[i]);
+    if (val < 0) throw new Error("Ungültiges Base58-Zeichen.");
+    for (let j = 0; j < bytes.length; j++) bytes[j] *= 58;
+    bytes[0] += val;
+    let carry = 0;
+    for (let j = 0; j < bytes.length; j++) {
+      bytes[j] += carry;
+      carry = bytes[j] >> 8;
+      bytes[j] &= 0xff;
+    }
+    while (carry) {
+      bytes.push(carry & 0xff);
+      carry >>= 8;
+    }
+  }
+  for (let i = 0; i < b58.length && b58[i] === '1'; i++) bytes.push(0);
+  const raw = new Uint8Array(bytes.reverse());
+  if (raw.length !== 34 || raw[0] !== 0xed || raw[1] !== 0x01) {
+    throw new Error("Kein gültiger Ed25519-Schlüssel im DID.");
+  }
+  return raw.slice(2);
+}
+
+function b64UrlToBytes(b64url) {
+  const b64 = b64url.replace(/-/g, '+').replace(/_/g, '/');
+  const pad = b64.length % 4 ? '='.repeat(4 - (b64.length % 4)) : '';
+  const bin = atob(b64 + pad);
+  return Uint8Array.from(bin, c => c.charCodeAt(0));
+}
+
+async function verifyAndDecrypt() {
+  const statusEl = document.getElementById("statusBox");
+  const viewerEl = document.getElementById("pdfViewer");
+  const metaEl = document.getElementById("metaInfo");
+
+  try {
+    const hashParams = new URLSearchParams(window.location.hash.slice(1));
+    const docId = hashParams.get("doc");
+    const secretKeyB64 = hashParams.get("key");
+
+    if (!docId || !secretKeyB64) {
+      throw new Error("Kein Dokumenten-Schlüssel im QR-Code-Fragment (#) gefunden.");
+    }
+    if (!/^[a-zA-Z0-9_-]+$/.test(docId)) {
+      throw new Error("Ungültige Dokumenten-ID.");
+    }
+
+    statusEl.textContent = `Lade verschlüsseltes Paket (${docId}.enc) & Signatur...`;
+
+    const [encResponse, sigResponse] = await Promise.all([
+      fetch(`./vault/${docId}.enc`),
+      fetch(`./vault/${docId}.sig`)
+    ]);
+
+    if (!encResponse.ok || !sigResponse.ok) {
+      throw new Error("Dokument oder Signatur auf dem Speicherserver nicht gefunden.");
+    }
+
+    const encryptedPayload = new Uint8Array(await encResponse.arrayBuffer());
+    const signatureBytes = new Uint8Array(await sigResponse.arrayBuffer());
+
+    statusEl.textContent = "Prüfe mathematische Ed25519-Signatur gegen Genesis-DID...";
+    const pubKeyBytes = decodeDidToEd25519Bytes(GENESIS_DID);
+
+    const cryptoPubKey = await window.crypto.subtle.importKey(
+      "raw",
+      pubKeyBytes,
+      { name: "Ed25519" },
+      false,
+      ["verify"]
+    );
+
+    const isAuthentic = await window.crypto.subtle.verify(
+      { name: "Ed25519" },
+      cryptoPubKey,
+      signatureBytes,
+      encryptedPayload
+    );
+
+    if (!isAuthentic) {
+      throw new Error("KRITISCH: Signatur ungültig! Die Datei wurde manipuliert oder stammt nicht vom Aussteller.");
+    }
+
+    statusEl.textContent = "Signatur verifiziert! Entschlüssele Dokument lokal im RAM...";
+    const aesKeyBytes = b64UrlToBytes(secretKeyB64);
+    const iv = encryptedPayload.slice(0, 12);
+    const ciphertext = encryptedPayload.slice(12);
+
+    const cryptoAesKey = await window.crypto.subtle.importKey(
+      "raw",
+      aesKeyBytes,
+      { name: "AES-GCM" },
+      false,
+      ["decrypt"]
+    );
+
+    const decryptedBuffer = await window.crypto.subtle.decrypt(
+      { name: "AES-GCM", iv: iv },
+      cryptoAesKey,
+      ciphertext
+    );
+
+    const pdfBlob = new Blob([decryptedBuffer], { type: "application/pdf" });
+    const blobUrl = URL.createObjectURL(pdfBlob);
+
+    statusEl.className = "status valid";
+    statusEl.textContent = "✅ INTEGRITÄT BESTÄTIGT: Echtes, unverändertes Originaldokument.";
+    viewerEl.src = blobUrl;
+    viewerEl.style.display = "block";
+    metaEl.textContent = `Verifiziert mit W3C DID: ${GENESIS_DID}`;
+
+  } catch (err) {
+    statusEl.className = "status invalid";
+    statusEl.textContent = `❌ VERIFIKATION FEHLGESCHLAGEN: ${err.message}`;
+  }
+}
+
+window.addEventListener("DOMContentLoaded", verifyAndDecrypt);
+</script>
+</body>
+</html>
