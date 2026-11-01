@@ -83,8 +83,8 @@ async function verifyAndDecrypt() {
     statusEl.textContent = `Lade verschlüsseltes Paket (${docId}.enc) & Signatur...`;
 
     const [encResponse, sigResponse] = await Promise.all([
-      fetch(`./vault/${docId}.enc`),
-      fetch(`./vault/${docId}.sig`)
+      fetch(`./vault/${docId}.enc?t=${Date.now()}`, {cache: 'no-store'}),
+      fetch(`./vault/${docId}.sig?t=${Date.now()}`, {cache: 'no-store'})
     ]);
 
     if (!encResponse.ok || !sigResponse.ok) {
