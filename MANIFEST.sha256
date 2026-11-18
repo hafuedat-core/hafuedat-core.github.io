@@ -1,6 +1,9 @@
 c4d8fdf396219ab0d99e416f1aea31c703f72766fbeac9e13b303e9cbf2cc333  ./README.md
 d322b39a573caa5bf8dfc4251bcc45c6506ab43a66ef60ae770517034a353cc6  ./tpm-architektur-integritaet.md
 b4a841f6141a939f94b5b8dc79683ba57c71ac2230b2ae47929381c0a0e22a56  ./tpm-architektur-integritaet.md.minisig
+cc31503598be4629f4ab296b1bb202f88d3f51d5e170dab3bf9e9fe9fa42f15c  ./vault/ACT.enc
+cf089d0f1e7e0ae4d215cc29ddf399bf6faacb313533780e8adfdd87ade4f57f  ./vault/ACT.minisig
+2833bda8a900046286d290604f19bee099b0f9f6f6e8851aa151fb40c1d29fbc  ./vault/ACT.sig
 0d6d3a44b4609f9ebf317bcabf863518f4198587091f5155bbcc3063d1e530f8  ./vault/AC_logo.enc
 0e88b11ef8bbb46b6914518e0704ccb6b3325b92b248e75e8b23fe1994eead68  ./vault/AC_logo.minisig
 27c3a68598c8adc41bb0c8bca9dbb6e2bfbb237b728b5944a05b1bf0371c6632  ./vault/AC_logo.sig
