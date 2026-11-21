@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HAFÜDAT PRO – FinOS Quick Start Guide & Navigation (v1.9.9.5.5 – Global Edition)</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-2: #1f2630;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --amber: #d29922;
+    --code-bg: #0b0f14;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 2rem 1rem 4rem;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  header {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  h1 {
+    margin: 0 0 0.25rem;
+    font-size: 1.85rem;
+    letter-spacing: 0.02em;
+  }
+  .subtitle {
+    margin: 0 0 1rem;
+    color: var(--accent);
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+  .tagline {
+    margin: 0;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .lang-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+  .lang-nav a {
+    display: inline-block;
+    padding: 0.45rem 0.9rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .lang-nav a:hover {
+    border-color: var(--accent);
+    background: #252e3a;
+  }
+  section.lang-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 1.75rem;
+    margin-bottom: 2rem;
+  }
+  section.lang-section h2 {
+    margin-top: 0;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 1.5rem;
+  }
+  h3 {
+    color: var(--accent);
+    margin-top: 1.6rem;
+    margin-bottom: 0.6rem;
+    font-size: 1.15rem;
+  }
+  a {
+    color: var(--accent);
+    word-break: break-word;
+  }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    padding: 0.15rem 0.4rem;
+    border-radius: 5px;
+    font-size: 0.88em;
+    color: #a5d6ff;
+    word-break: break-all;
+  }
+  .hash-box {
+    display: block;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green);
+    padding: 0.7rem 0.9rem;
+    border-radius: 6px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.85rem;
+    color: #7ee787;
+    word-break: break-all;
+    margin: 0.4rem 0 0.8rem;
+  }
+  ul, ol {
+    padding-left: 1.35rem;
+  }
+  li {
+    margin-bottom: 0.45rem;
+  }
+  .meta-block {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.94rem;
+  }
+  .back-top {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .back-top:hover {
+    color: var(--accent);
+  }
+</style>
+</head>
+<body id="top">
+<div class="container">
+
+  <header>
+    <h1>HAFÜDAT FINANCIAL OPERATING SYSTEM</h1>
+    <div class="subtitle">Quick Start Guide &amp; Navigation (v1.9.9.5.5 – Global Edition)</div>
+    <p class="tagline">„Stop managing finances. Find financial clarity. / Finde finanzielle Klarheit.“</p>
+  </header>
+
+  <div class="card">
+    <strong>🌐 Select Your Language / Wählen Sie Ihre Sprache / Choisissez votre langue</strong>
+    <p>Dieses mehrsprachige Dokument enthält den offiziellen Quick Start Guide in sechs Sprachen:</p>
+    <nav class="lang-nav" aria-label="Language navigation">
+      <a href="#de">🇩🇪 Deutsch (1)</a>
+      <a href="#en">🇬🇧 English (2)</a>
+      <a href="#fr">🇫🇷 Français (3)</a>
+      <a href="#it">🇮🇹 Italiano (4)</a>
+      <a href="#es">🇪🇸 Español (5)</a>
+      <a href="#pl">🇵🇱 Polski (6)</a>
+    </nav>
+  </div>
+
+  <div class="card">
+    <strong>🔒 Unabhängige Verifizierung &amp; Sicherheit / Independent Security Notice</strong>
+    <p>Da im Internet Nachahmungen vorkommen können, setzen wir auf volle mathematische und organisatorische Transparenz:</p>
+    <ul>
+      <li><strong>Offizieller Zahlungsabwickler:</strong> Digistore24 GmbH (verifiziert auf <a href="https://de.trustpilot.com/review/www.digistore24.com" target="_blank" rel="noopener noreferrer">Trustpilot</a> mit Tausenden geprüften Transaktionen).</li>
+      <li><strong>Offizieller Checkout-Link für FinOS:</strong> <a href="https://www.checkout-ds24.com/product/725138" target="_blank" rel="noopener noreferrer">https://www.checkout-ds24.com/product/725138</a></li>
+      <li><strong>Offizieller SHA-256 Hash (<code>hafuedat_v1.9.9.5.5.xlsx</code>):</strong>
+        <span class="hash-box">ab02ddb6c93c32fa2ff4c776a6b1523d97d88ba429312006b4b55c51d3e7d309</span>
+      </li>
+      <li><strong>W3C Decentralized Identifier (<code>did:key</code>):</strong> <code>did:key:z6Mkfw3iLzZZ5H7jsRKs9fx1x9Ve4AcMNQjor3KCY216P8fa</code></li>
+    </ul>
+  </div>
+
+  <!-- 1. DEUTSCH -->
+  <section id="de" class="lang-section" lang="de">
+    <h2>🇩🇪 QUICK START GUIDE (DEUTSCH)</h2>
+    <div class="meta-block">
+      <strong>HAFÜDAT PRO – FinOS Financial Operating System (v1.9.9.5.5 – Eternal Year Engine)</strong><br>
+      Offizieller Checkout: <a href="https://www.checkout-ds24.com/product/725138" target="_blank" rel="noopener noreferrer">https://www.checkout-ds24.com/product/725138</a><br>
+      SHA-256 (<code>hafuedat_v1.9.9.5.5.xlsx</code>): <code>ab02ddb6c93c32fa2ff4c776a6b1523d97d88ba429312006b4b55c51d3e7d309</code><br>
+      <em>„Hör auf, Finanzen zu verwalten. Finde finanzielle Klarheit.“</em>
+    </div>
+
+    <h3>🚀 Phase 1: Ingestion (Einrichtung &amp; Architektur)</h3>
+    <p>Damit FinOS präzise arbeiten kann, benötigt es einmalig deine Grunddaten (ca. 10 Minuten).</p>
+    <p><strong>1. System-Start &amp; Plattform-Wahl</strong></p>
+    <ul>
+      <li><strong>Google Sheets:</strong> Erstelle dir über <em>Datei &gt; Kopie erstellen</em> zuerst deine eigene, private Version in deinem Google Drive. Prüfe anschließend unter <em>Datei &gt; Einstellungen &gt; Zeitzone</em>, dass deine lokale Zeitzone eingestellt ist (z. B. <code>(GMT+01:00) Mitteleuropäische Zeit – Berlin</code>), damit der Datumswechsel exakt um Mitternacht erfolgt.</li>
+      <li><strong>Lokal / Linux / PC:</strong> Nutze die Datei völlig autark auf deinem Rechner – voll kompatibel mit Microsoft Excel oder Open-Source-Tabellenkalkulationen wie LibreOffice Calc.</li>
+      <li><strong>Der Ordner-Ansatz für die Ewigkeit:</strong> Lege dir lokal einen Hauptordner „Haushaltsbuch“ an und kopiere diese schlanke, unverschlüsselte Master-Datei für jedes neue Jahr. So entsteht eine lückenlose, lokale Finanzplanung über Jahrzehnte.</li>
+    </ul>
+    <p><strong>2. Basic Settings (TAB 4 – Grundkonfiguration)</strong><br>Wechsle in <strong>TAB 4</strong>, um die globalen Parameter einzustellen:</p>
+    <ul>
+      <li><strong>Salary &amp; Wage (Zellen B3:C4):</strong> Definiere hier deine regelmäßigen Einkommensbeträge (<em>Amount</em>) und die dazugehörigen Auszahlungstage (<em>Payout Days</em>).</li>
+      <li><strong>Explanation Mode &amp; Language (Zellen B6:B7):</strong> Aktiviere bei Bedarf den integrierten Erklärmodus (<code>on</code> / <code>off</code>) und wähle deine bevorzugte Sprache im Dropdown-Menü (<code>English</code>, <code>Deutsch</code>, <code>Français</code>, <code>Italiano</code>, <code>Español</code>, <code>Polski</code>).</li>
+    </ul>
+    <p><strong>3. Config &amp; Fixkosten (TAB 3)</strong></p>
+    <ul>
+      <li><strong>Fixkosten (TAB 3 – Config):</strong> Liste hier alle wiederkehrenden Fixkosten auf (Miete, Strom, Abos, Versicherungen).</li>
+      <li><strong>Smart-Logic:</strong> Nutze die Spalten „Von“ und „Bis“, wenn ein Vertrag (z. B. Fitnessstudio) mitten im Jahr startet oder endet. Die Engine berechnet außerhalb dieses Zeitraums automatisch 0,00 €.</li>
+    </ul>
+
+    <h3>⚡ Phase 2: Daily Ops (Der Alltag)</h3>
+    <p>FinOS ist für die <strong>3-Sekunden-Erfassung</strong> ohne komplexe Buchhaltung gebaut.</p>
+    <p><strong>📅 Die Smart-Date-Logik</strong><br>Du musst das Datum nicht manuell eintippen. Lässt du das Datumsfeld (<strong>TAB 1 – Zelle A2</strong>) leer, trägt FinOS automatisch das heutige Datum ein.</p>
+    <p><strong>💳 Ausgaben erfassen (TAB 1 – INPUT)</strong></p>
+    <ul>
+      <li><strong>A) Bargeld abheben (Cash Withdrawal):</strong> Trage den abgehobenen Betrag in <strong>Spalte B (<code>B3:B33</code>)</strong> ein. Das Geld wandert virtuell vom Bankkonto in dein Bargeld-Budget.</li>
+      <li><strong>B) Bargeld-Ausgaben (Cash):</strong> Trage Barzahlungen in <strong>Spalte D (<code>D3:D33</code>)</strong> ein.</li>
+      <li><strong>C) Kartenzahlung &amp; Überweisung (Bank Transfer):</strong> Trage Beträge in die <strong>Spalten H:I (<code>H3:I33</code>)</strong> ein.</li>
+      <li><strong>D) Debit / Sub-Account:</strong> Trage Aufladungen/Abbuchungen vom Girokonto im Bank-Bereich (<code>H3:I33</code>) ein und liste die einzelnen Ausgaben im Debit-Bereich (<strong>Spalten J:K / <code>J3:K33</code></strong>) auf.</li>
+      <li><strong>E) Google Play &amp; Prepaid:</strong> Nutze bei Bedarf die dedizierten Bereiche <strong>Google Play (<code>L3:M33</code>)</strong> und <strong>Prepaid (<code>N3:O33</code>)</strong>.</li>
+    </ul>
+
+    <h3>🛡️ Phase 3: Wartung &amp; Monats-Reset</h3>
+    <p>FinOS läuft endlos (<em>Eternal Year Engine</em>). Du benötigst keine neue Datei für den Folgemonat.</p>
+    <p><strong>Der Monatswechsel (am letzten Tag des Monats):</strong></p>
+    <ol>
+      <li><strong>Archivierung (TAB 2 – Dashboard):</strong>
+        <ul>
+          <li>Kopiere die Monatssummen aus <strong>Zeile 32</strong> und füge sie als reine Werte (<em>Werte einfügen</em>) in <strong>Zeile 33 (Tresor)</strong> ein.</li>
+          <li>Kopiere die Werte aus <strong>Zeile 34</strong> und füge sie als reine Werte in <strong>Zeile 35 (Carryover)</strong> ein.</li>
+        </ul>
+      </li>
+      <li><strong>Wipe (Eingaben zurücksetzen in TAB 1):</strong>
+        <ul>
+          <li>Markiere ausschließlich die Eingabespalten <strong><code>B3:B33</code></strong>, <strong><code>D3:D33</code></strong> sowie <strong><code>H3:O33</code></strong> und drücke <em>Entf</em> (Löschen).</li>
+          <li><em>Wichtig:</em> Lasse die Berechnungs- und Formelspalten (<code>C</code>, <code>E</code>, <code>F</code>, <code>G</code>) unberührt.</li>
+        </ul>
+      </li>
+      <li><strong>Neustart:</strong> Das System springt automatisch auf den neuen Monat um.</li>
+    </ol>
+
+    <h3>⚠️ Kernel Protection (Integritäts-Schutz)</h3>
+    <ul>
+      <li><strong>Farbige Warnungen:</strong> Färbt sich eine Formelzelle plötzlich farbig ein, wurde versehentlich eine geschützte Formel durch einen festen Wert überschrieben. Nutze sofort <em>Rückgängig</em> (<code>Strg+Z</code>), bis die Markierung verschwindet.</li>
+      <li><strong>Grundregel:</strong> Schreibe nur in die vorgesehenen Eingabefelder. Da die Datei unverschlüsselt und offen ist, kannst du sie jederzeit eigenständig prüfen und an deine Bedürfnisse anpassen.</li>
+    </ul>
+
+    <h3>🔐 Zero-Trust &amp; Kryptografische Verifizierung</h3>
+    <p>Wir setzen auf mathematische Prüfbarkeit statt auf blindes Vertrauen:</p>
+    <ul>
+      <li><strong>Digitaler Fingerabdruck (SHA-256):</strong> Vergleiche den Hash deiner heruntergeladenen Datei lokal (z. B. via <code>sha256sum hafuedat_v1.9.9.5.5.xlsx</code>) mit dem offiziellen Wert:
+        <span class="hash-box">ab02ddb6c93c32fa2ff4c776a6b1523d97d88ba429312006b4b55c51d3e7d309</span>
+      </li>
+      <li><strong>Öffentliches Release-Archiv (GitHub):</strong> Offizielle Dokumentation und Prüfsummen sind nachvollziehbar unter <a href="https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html" target="_blank" rel="noopener noreferrer">https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html</a> hinterlegt.</li>
+      <li><strong>Ed25519-Signatur (<code>minisign</code>) &amp; W3C <code>did:key</code>:</strong> Unsere Veröffentlichungen sind kryptografisch mit unserem Ed25519-Schlüssel signiert und an unsere dezentrale Identität <code>did:key:z6Mkfw3iLzZZ5H7jsRKs9fx1x9Ve4AcMNQjor3KCY216P8fa</code> gebunden.</li>
+    </ul>
+
+    <h3>📡 Support &amp; Rechtliches</h3>
+    <ul>
+      <li><strong>Kontakt:</strong> <a href="mailto:hafuedat@posteo.eu">hafuedat@posteo.eu</a> <em>(bitte bei technischen Rückfragen die Bestell-ID angeben)</em></li>
+      <li><strong>Lizenz (EULA):</strong> Diese Datei ist für die private Nutzung lizenziert. Die Weitergabe an Dritte oder der kommerzielle Weiterverkauf der <em>Eternal-Year-Engine</em>-Architektur ist untersagt.</li>
+      <li><strong>Haftungsausschluss:</strong> FinOS ist ein mathematisches Werkzeug zur persönlichen Finanzübersicht. Alle Berechnungen basieren ausschließlich auf deinen eigenen Eingaben. Es wird keine Haftung für finanzielle Entscheidungen oder Eingabefehler übernommen.</li>
+    </ul>
+    <a class="back-top" href="#top">↑ Nach oben / Back to top</a>
+  </section>
+
+  <!-- 2. ENGLISH -->
+  <section id="en" class="lang-section" lang="en">
+    <h2>🇬🇧 QUICK START GUIDE (ENGLISH)</h2>
+    <div class="meta-block">
+      <strong>HAFÜDAT PRO – FinOS Financial Operating System (v1.9.9.5.5 – Eternal Year Engine)</strong><br>
+      Official Checkout: <a href="https://www.checkout-ds24.com/product/725138" target="_blank" rel="noopener noreferrer">https://www.checkout-ds24.com/product/725138</a><br>
+      SHA-256 (<code>hafuedat_v1.9.9.5.5.xlsx</code>): <code>ab02ddb6c93c32fa2ff4c776a6b1523d97d88ba429312006b4b55c51d3e7d309</code><br>
+      <em>“Stop managing finances. Find financial clarity.”</em>
+    </div>
+
+    <h3>🚀 Phase 1: Ingestion (Setup &amp; Architecture)</h3>
+    <p>FinOS needs your baseline figures once (approx. 10 minutes) to operate with full precision.</p>
+    <p><strong>1. System Start &amp; Platform Choice</strong></p>
+    <ul>
+      <li><strong>Google Sheets:</strong> Go to <em>File &gt; Make a copy</em> to create your own private copy in Google Drive. Then check <em>File &gt; Settings &gt; Time zone</em> to make sure your local time zone is selected so the date rolls over accurately at midnight.</li>
+      <li><strong>Local / Linux / PC:</strong> Use the spreadsheet completely offline on your computer – fully compatible with Microsoft Excel and open-source tools like LibreOffice Calc.</li>
+      <li><strong>The Folder Approach for Eternity:</strong> Create a local folder named “Financial Book” and copy this lean, unencrypted master file for each new year to maintain a seamless, local financial archive across decades.</li>
+    </ul>
+    <p><strong>2. Basic Settings (TAB 4 – Global Configuration)</strong><br>Open <strong>TAB 4</strong> to configure your global parameters:</p>
+    <ul>
+      <li><strong>Salary &amp; Wage (Cells B3:C4):</strong> Enter your recurring income amounts (<em>Amount</em>) and corresponding payout days (<em>Payout Days</em>).</li>
+      <li><strong>Explanation Mode &amp; Language (Cells B6:B7):</strong> Toggle the built-in explanation mode (<code>on</code> / <code>off</code>) and select your preferred interface language (<code>English</code>, <code>Deutsch</code>, <code>Français</code>, <code>Italiano</code>, <code>Español</code>, <code>Polski</code>).</li>
+    </ul>
+    <p><strong>3. Config &amp; Fixed Costs (TAB 3)</strong></p>
+    <ul>
+      <li><strong>Fixed Costs (TAB 3 – Config):</strong> List all recurring expenses (rent, electricity, subscriptions, insurance).</li>
+      <li><strong>Smart Logic:</strong> Use the “From” (<em>Von</em>) and “To” (<em>Bis</em>) columns if a contract starts or ends mid-year. The engine automatically calculates 0.00 € outside that timeframe.</li>
+    </ul>
+
+    <h3>⚡ Phase 2: Daily Ops (Everyday Workflow)</h3>
+    <p>FinOS is engineered for <strong>3-second logging</strong> without tedious bookkeeping.</p>
+    <p><strong>📅 Smart-Date Logic</strong><br>No need to type today’s date. Leave the date cell (<strong>TAB 1 – Cell A2</strong>) empty and FinOS automatically displays the current date.</p>
+    <p><strong>💳 Logging Expenses (TAB 1 – INPUT)</strong></p>
+    <ul>
+      <li><strong>A) Cash Withdrawal:</strong> Enter withdrawn cash in <strong>Column B (<code>B3:B33</code>)</strong>. Funds virtually move from your bank balance to your cash wallet.</li>
+      <li><strong>B) Cash Expenses:</strong> Record cash spending in <strong>Column D (<code>D3:D33</code>)</strong>.</li>
+      <li><strong>C) Card Payments &amp; Bank Transfers:</strong> Log bank transactions in <strong>Columns H:I (<code>H3:I33</code>)</strong>.</li>
+      <li><strong>D) Debit / Sub-Account:</strong> Record account top-ups/transfers in the Bank section (<code>H3:I33</code>) and itemize individual expenses in the Debit section (<strong>Columns J:K / <code>J3:K33</code></strong>).</li>
+      <li><strong>E) Google Play &amp; Prepaid:</strong> Use the dedicated <strong>Google Play (<code>L3:M33</code>)</strong> and <strong>Prepaid (<code>N3:O33</code>)</strong> columns as needed.</li>
+    </ul>
+
+    <h3>🛡️ Phase 3: Maintenance &amp; Monthly Reset</h3>
+    <p>FinOS runs continuously (<em>Eternal Year Engine</em>)—you do not need a new file each month.</p>
+    <p><strong>Monthly Rollover (on the last day of the month):</strong></p>
+    <ol>
+      <li><strong>Archiving (TAB 2 – Dashboard):</strong>
+        <ul>
+          <li>Copy the monthly totals from <strong>Row 32</strong> and paste them as values only (<em>Paste values only</em>) into <strong>Row 33 (Vault)</strong>.</li>
+          <li>Copy the figures from <strong>Row 34</strong> and paste them as values only into <strong>Row 35 (Carryover)</strong>.</li>
+        </ul>
+      </li>
+      <li><strong>Wipe (Resetting inputs in TAB 1):</strong>
+        <ul>
+          <li>Select only the input ranges <strong><code>B3:B33</code></strong>, <strong><code>D3:D33</code></strong>, and <strong><code>H3:O33</code></strong>, then press <em>Delete</em>.</li>
+          <li><em>Important:</em> Leave formula columns (<code>C</code>, <code>E</code>, <code>F</code>, <code>G</code>) untouched.</li>
+        </ul>
+      </li>
+      <li><strong>Restart:</strong> The dashboard automatically transitions into the new month.</li>
+    </ol>
+
+    <h3>⚠️ Kernel Protection (Integrity Safeguard)</h3>
+    <ul>
+      <li><strong>Color Alerts:</strong> If a formula cell suddenly highlights in color, a protected formula was accidentally overwritten with a static value. Press <em>Undo</em> (<code>Ctrl+Z</code>) immediately until the alert clears.</li>
+      <li><strong>Golden Rule:</strong> Only enter data into designated input fields. Because the file is open and unencrypted, you remain in full control and can audit or customize every formula yourself.</li>
+    </ul>
+
+    <h3>🔐 Zero-Trust &amp; Cryptographic Verification</h3>
+    <p>We rely on verifiable mathematics rather than blind trust:</p>
+    <ul>
+      <li><strong>Digital Fingerprint (SHA-256):</strong> Verify your downloaded file locally (e.g., via <code>sha256sum hafuedat_v1.9.9.5.5.xlsx</code>) against the official checksum:
+        <span class="hash-box">ab02ddb6c93c32fa2ff4c776a6b1523d97d88ba429312006b4b55c51d3e7d309</span>
+      </li>
+      <li><strong>Public Release Archive (GitHub):</strong> Official documentation and hashes are published at <a href="https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html" target="_blank" rel="noopener noreferrer">https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html</a>.</li>
+      <li><strong>Ed25519 Signature (<code>minisign</code>) &amp; W3C <code>did:key</code>:</strong> Official releases are cryptographically signed with our Ed25519 key and anchored to <code>did:key:z6Mkfw3iLzZZ5H7jsRKs9fx1x9Ve4AcMNQjor3KCY216P8fa</code>.</li>
+    </ul>
+
+    <h3>📡 Support &amp; Legal</h3>
+    <ul>
+      <li><strong>Contact:</strong> <a href="mailto:hafuedat@posteo.eu">hafuedat@posteo.eu</a> <em>(please include your order ID for technical inquiries)</em></li>
+      <li><strong>License (EULA):</strong> Licensed for private personal use only. Redistribution to third parties or commercial resale of the <em>Eternal Year Engine</em> architecture is strictly prohibited.</li>
+      <li><strong>Disclaimer:</strong> FinOS is a mathematical visualization tool. All outputs rely exclusively on your manual inputs. We assume no liability for financial decisions or data entry errors.</li>
+    </ul>
+    <a class="back-top" href="#top">↑ Back to top</a>
+  </section>
+
+  <!-- 3. FRANÇAIS -->
+  <section id="fr" class="lang-section" lang="fr">
+    <h2>🇫🇷 GUIDE DE DÉMARRAGE RAPIDE (FRANÇAIS)</h2>
+    <div class="meta-block">
+      <strong>HAFÜDAT PRO – FinOS Financial Operating System (v1.9.9.5.5 – Eternal Year Engine)</strong><br>
+      Lien de commande officiel : <a href="https://www.checkout-ds24.com/product/725138" target="_blank" rel="noopener noreferrer">https://www.checkout-ds24.com/product/725138</a><br>
+      SHA-256 (<code>hafuedat_v1.9.9.5.5.xlsx</code>) : <code>ab02ddb6c93c32fa2ff4c776a6b1523d97d88ba429312006b4b55c51d3e7d309</code><br>
+      <em>« Arrêtez de gérer vos finances. Trouvez la clarté financière. »</em>
+    </div>
+
+    <h3>🚀 Phase 1 : Ingestion (Configuration &amp; Architecture)</h3>
+    <p>FinOS a besoin de vos données de base une seule fois (environ 10 minutes) pour fonctionner avec précision.</p>
+    <p><strong>1. Démarrage du système &amp; Choix de la plateforme</strong></p>
+    <ul>
+      <li><strong>Google Sheets :</strong> Allez dans <em>Fichier &gt; Créer une copie</em> pour créer votre propre version privée dans Google Drive. Vérifiez ensuite sous <em>Fichier &gt; Paramètres &gt; Fuseau horaire</em> que votre fuseau horaire local est sélectionné afin que la date change exactement à minuit.</li>
+      <li><strong>Local / Linux / PC :</strong> Utilisez le fichier de façon totalement autonome sur votre ordinateur – entièrement compatible avec Microsoft Excel ou LibreOffice Calc.</li>
+      <li><strong>L'approche par dossier pour l'éternité :</strong> Créez un dossier local « Livre de comptes » et copiez ce fichier maître léger et non chiffré pour chaque nouvelle année afin de conserver un historique financier local sur plusieurs décennies.</li>
+    </ul>
+    <p><strong>2. Paramètres de base (ONGLET 4 – Configuration globale)</strong><br>Ouvrez l'<strong>ONGLET 4</strong> pour définir les paramètres globaux :</p>
+    <ul>
+      <li><strong>Salary &amp; Wage (Cellules B3:C4) :</strong> Renseignez vos revenus réguliers (<em>Amount</em>) et les jours de versement (<em>Payout Days</em>).</li>
+      <li><strong>Explanation Mode &amp; Language (Cellules B6:B7) :</strong> Activez ou désactivez le mode explicatif intégré (<code>on</code> / <code>off</code>) et choisissez votre langue dans le menu déroulant (<code>English</code>, <code>Deutsch</code>, <code>Français</code>, <code>Italiano</code>, <code>Español</code>, <code>Polski</code>).</li>
+    </ul>
+    <p><strong>3. Config &amp; Frais fixes (ONGLET 3)</strong></p>
+    <ul>
+      <li><strong>Frais fixes (ONGLET 3 – Config) :</strong> Listez vos dépenses récurrentes (loyer, électricité, abonnements, assurances).</li>
+      <li><strong>Logique intelligente :</strong> Utilisez les colonnes « Von » (De) et « Bis » (À) si un contrat débute ou s'achève en cours d'année. Le moteur calcule automatiquement 0,00 € en dehors de cette période.</li>
+    </ul>
+
+    <h3>⚡ Phase 2 : Opérations quotidiennes (Flux de travail)</h3>
+    <p>FinOS est conçu pour une <strong>saisie en 3 secondes</strong>, sans comptabilité fastidieuse.</p>
+    <p><strong>📅 Logique de date intelligente</strong><br>Inutile de saisir la date du jour : laissez la cellule de date (<strong>ONGLET 1 – Cellule A2</strong>) vide et FinOS affiche automatiquement la date actuelle.</p>
+    <p><strong>💳 Saisie des dépenses (ONGLET 1 – INPUT)</strong></p>
+    <ul>
+      <li><strong>A) Retrait d'espèces (Cash Withdrawal) :</strong> Saisissez le montant retiré dans la <strong>colonne B (<code>B3:B33</code>)</strong>. L'argent passe virtuellement du compte bancaire au portefeuille espèces.</li>
+      <li><strong>B) Dépenses en espèces (Cash) :</strong> Saisissez vos paiements en liquide dans la <strong>colonne D (<code>D3:D33</code>)</strong>.</li>
+      <li><strong>C) Paiements par carte &amp; Virements (Bank Transfer) :</strong> Saisissez les montants dans les <strong>colonnes H:I (<code>H3:I33</code>)</strong>.</li>
+      <li><strong>D) Débit / Sous-compte :</strong> Saisissez les rechargements/prélèvements depuis le compte courant dans la zone bancaire (<code>H3:I33</code>) et détaillez chaque dépense dans la zone Débit (<strong>colonnes J:K / <code>J3:K33</code></strong>).</li>
+      <li><strong>E) Google Play &amp; Prepaid :</strong> Utilisez les colonnes dédiées <strong>Google Play (<code>L3:M33</code>)</strong> et <strong>Prepaid (<code>N3:O33</code>)</strong> selon vos besoins.</li>
+    </ul>
+
+    <h3>🛡️ Phase 3 : Maintenance &amp; Réinitialisation mensuelle</h3>
+    <p>FinOS fonctionne en continu (<em>Eternal Year Engine</em>) : aucun nouveau fichier n'est nécessaire d'un mois à l'autre.</p>
+    <p><strong>Le changement de mois (le dernier jour du mois) :</strong></p>
+    <ol>
+      <li><strong>Archivage (ONGLET 2 – Dashboard) :</strong>
+        <ul>
+          <li>Copiez les totaux mensuels de la <strong>ligne 32</strong> et collez-les en tant que valeurs uniquement (<em>Coller les valeurs uniquement</em>) dans la <strong>ligne 33 (Coffre-fort / Vault)</strong>.</li>
+          <li>Copiez les montants de la <strong>ligne 34</strong> et collez-les en tant que valeurs uniquement dans la <strong>ligne 35 (Report / Carryover)</strong>.</li>
+        </ul>
+      </li>
+      <li><strong>Effacement (Wipe dans l'ONGLET 1) :</strong>
+        <ul>
+          <li>Sélectionnez uniquement les plages de saisie <strong><code>B3:B33</code></strong>, <strong><code>D3:D33</code></strong> et <strong><code>H3:O33</code></strong>, puis appuyez sur <em>Supprimer</em>.</li>
+          <li><em>Important :</em> Ne modifiez pas les colonnes de formules (<code>C</code>, <code>E</code>, <code>F</code>, <code>G</code>).</li>
+        </ul>
+      </li>
+      <li><strong>Redémarrage :</strong> Le tableau bascule automatiquement sur le nouveau mois.</li>
+    </ol>
+
+    <h3>⚠️ Protection du noyau (Sauvegarde de l'intégrité)</h3>
+    <ul>
+      <li><strong>Alertes visuelles :</strong> Si une cellule de formule se colore soudainement, une formule protégée a été remplacée par erreur par une valeur fixe. Utilisez immédiatement <em>Annuler</em> (<code>Ctrl+Z</code>) jusqu'à disparition de l'alerte.</li>
+      <li><strong>Règle d'or :</strong> Saisissez vos données uniquement dans les zones prévues à cet effet. Le fichier étant ouvert et non chiffré, vous pouvez vérifier et adapter chaque formule librement.</li>
+    </ul>
+
+    <h3>🔐 Zero-Trust &amp; Vérification cryptographique</h3>
+    <p>Nous privilégions la preuve mathématique plutôt que la confiance aveugle :</p>
+    <ul>
+      <li><strong>Empreinte numérique (SHA-256) :</strong> Vérifiez localement le hachage de votre fichier téléchargé (par ex. via <code>sha256sum hafuedat_v1.9.9.5.5.xlsx</code>) avec l'empreinte officielle :
+        <span class="hash-box">ab02ddb6c93c32fa2ff4c776a6b1523d97d88ba429312006b4b55c51d3e7d309</span>
+      </li>
+      <li><strong>Archive publique (GitHub) :</strong> La documentation officielle et les sommes de contrôle sont publiées sur <a href="https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html" target="_blank" rel="noopener noreferrer">https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html</a>.</li>
+      <li><strong>Signature Ed25519 (<code>minisign</code>) &amp; W3C <code>did:key</code> :</strong> Nos publications officielles sont signées cryptographiquement avec notre clé Ed25519 et rattachées à l'identifiant décentralisé <code>did:key:z6Mkfw3iLzZZ5H7jsRKs9fx1x9Ve4AcMNQjor3KCY216P8fa</code>.</li>
+    </ul>
+
+    <h3>📡 Support &amp; Mentions légales</h3>
+    <ul>
+      <li><strong>Contact :</strong> <a href="mailto:hafuedat@posteo.eu">hafuedat@posteo.eu</a> <em>(veuillez indiquer votre numéro de commande pour toute demande technique)</em></li>
+      <li><strong>Licence (CLUF / EULA) :</strong> Licence accordée exclusivement pour un usage personnel et privé. Toute diffusion à des tiers ou revente commerciale de l'architecture <em>Eternal Year Engine</em> est interdite.</li>
+      <li><strong>Clause de non-responsabilité :</strong> FinOS est un outil mathématique de visualisation financière. Tous les résultats reposent uniquement sur vos propres saisies. Nous déclinons toute responsabilité quant aux décisions financières ou erreurs de saisie.</li>
+    </ul>
+    <a class="back-top" href="#top">↑ Haut de page</a>
+  </section>
+
+  <!-- 4. ITALIANO -->
+  <section id="it" class="lang-section" lang="it">
+    <h2>🇮🇹 GUIDA RAPIDA (ITALIANO)</h2>
+    <div class="meta-block">
+      <strong>HAFÜDAT PRO – FinOS Financial Operating System (v1.9.9.5.5 – Eternal Year Engine)</strong><br>
+      Checkout ufficiale: <a href="https://www.checkout-ds24.com/product/725138" target="_blank" rel="noopener noreferrer">https://www.checkout-ds24.com/product/725138</a><br>
+      SHA-256 (<code>hafuedat_v1.9.9.5.5.xlsx</code>): <code>ab02ddb6c93c32fa2ff4c776a6b1523d97d88ba429312006b4b55c51d3e7d309</code><br>
+      <em>« Smetti di gestire le finanze. Trova la chiarezza finanziaria. »</em>
+    </div>
+
+    <h3>🚀 Fase 1: Ingestion (Configurazione e Architettura)</h3>
+    <p>FinOS richiede i tuoi dati di base una sola volta (circa 10 minuti) per funzionare con la massima precisione.</p>
+    <p><strong>1. Avvio del sistema e scelta della piattaforma</strong></p>
+    <ul>
+      <li><strong>Google Sheets:</strong> Vai su <em>File &gt; Crea una copia</em> per creare la tua versione privata nel tuo Google Drive. Controlla poi in <em>File &gt; Impostazioni &gt; Fuso orario</em> che sia selezionato il tuo fuso orario locale affinché il cambio data avvenga esattamente a mezzanotte.</li>
+      <li><strong>Locale / Linux / PC:</strong> Utilizza il file in modo completamente autonomo sul tuo computer – pienamente compatibile con Microsoft Excel o LibreOffice Calc.</li>
+      <li><strong>L'approccio a cartelle per l'eternità:</strong> Crea una cartella locale chiamata « Libro contabile » e copia questo file master leggero e non crittografato per ogni nuovo anno, mantenendo così uno storico finanziario locale per decenni.</li>
+    </ul>
+    <p><strong>2. Impostazioni di base (SCHEDA 4 – Configurazione globale)</strong><br>Apri la <strong>SCHEDA 4</strong> per impostare i parametri globali:</p>
+    <ul>
+      <li><strong>Salary &amp; Wage (Celle B3:C4):</strong> Inserisci le tue entrate regolari (<em>Amount</em>) e i relativi giorni di accredito (<em>Payout Days</em>).</li>
+      <li><strong>Explanation Mode &amp; Language (Celle B6:B7):</strong> Attiva o disattiva la modalità esplicativa integrata (<code>on</code> / <code>off</code>) e seleziona la tua lingua preferita nel menu a tendina (<code>English</code>, <code>Deutsch</code>, <code>Français</code>, <code>Italiano</code>, <code>Español</code>, <code>Polski</code>).</li>
+    </ul>
+    <p><strong>3. Config e Spese fisse (SCHEDA 3)</strong></p>
+    <ul>
+      <li><strong>Spese fisse (SCHEDA 3 – Config):</strong> Elenca tutte le spese ricorrenti (affitto, elettricità, abbonamenti, assicurazioni).</li>
+      <li><strong>Logica intelligente:</strong> Usa le colonne « Von » (Da) e « Bis » (A) se un contratto inizia o termina a metà anno. Il motore calcola automaticamente 0,00 € al di fuori di tale periodo.</li>
+    </ul>
+
+    <h3>⚡ Fase 2: Operazioni quotidiane (Flusso di lavoro)</h3>
+    <p>FinOS è progettato per una <strong>registrazione in 3 secondi</strong>, senza contabilità complessa.</p>
+    <p><strong>📅 Logica Smart-Date</strong><br>Non è necessario digitare la data odierna. Lascia vuota la cella della data (<strong>SCHEDA 1 – Cella A2</strong>) e FinOS inserirà automaticamente la data corrente.</p>
+    <p><strong>💳 Registrazione delle spese (SCHEDA 1 – INPUT)</strong></p>
+    <ul>
+      <li><strong>A) Prelievo di contanti (Cash Withdrawal):</strong> Inserisci l'importo prelevato nella <strong>colonna B (<code>B3:B33</code>)</strong>. Il denaro passa virtualmente dal conto bancario al portafoglio contanti.</li>
+      <li><strong>B) Spese in contanti (Cash):</strong> Registra i pagamenti in contanti nella <strong>colonna D (<code>D3:D33</code>)</strong>.</li>
+      <li><strong>C) Pagamenti con carta e Bonifici (Bank Transfer):</strong> Inserisci gli importi nelle <strong>colonne H:I (<code>H3:I33</code>)</strong>.</li>
+      <li><strong>D) Debito / Sottoconto:</strong> Registra ricariche/addebiti dal conto principale nella sezione bancaria (<code>H3:I33</code>) e dettagli le singole spese nella sezione Debito (<strong>colonne J:K / <code>J3:K33</code></strong>).</li>
+      <li><strong>E) Google Play &amp; Prepaid:</strong> Utilizza all'occorrenza le colonne dedicate <strong>Google Play (<code>L3:M33</code>)</strong> e <strong>Prepaid (<code>N3:O33</code>)</strong>.</li>
+    </ul>
+
+    <h3>🛡️ Fase 3: Manutenzione e Reset mensile</h3>
+    <p>FinOS funziona in modo continuo (<em>Eternal Year Engine</em>): non serve un nuovo file per il mese successivo.</p>
+    <p><strong>Cambio mese (l'ultimo giorno del mese):</strong></p>
+    <ol>
+      <li><strong>Archiviazione (SCHEDA 2 – Dashboard):</strong>
+        <ul>
+          <li>Copia i totali mensili dalla <strong>riga 32</strong> e incollali come soli valori (<em>Incolla solo valori</em>) nella <strong>riga 33 (Cassaforte / Vault)</strong>.</li>
+          <li>Copia i valori dalla <strong>riga 34</strong> e incollali come soli valori nella <strong>riga 35 (Riporto / Carryover)</strong>.</li>
+        </ul>
+      </li>
+      <li><strong>Azzeramento (Wipe nella SCHEDA 1):</strong>
+        <ul>
+          <li>Seleziona esclusivamente gli intervalli di inserimento <strong><code>B3:B33</code></strong>, <strong><code>D3:D33</code></strong> e <strong><code>H3:O33</code></strong>, quindi premi <em>Canc</em>.</li>
+          <li><em>Importante:</em> Non modificare le colonne delle formule (<code>C</code>, <code>E</code>, <code>F</code>, <code>G</code>).</li>
+        </ul>
+      </li>
+      <li><strong>Riavvio:</strong> Il sistema passa automaticamente al nuovo mese.</li>
+    </ol>
+
+    <h3>⚠️ Protezione del nucleo (Salvaguardia dell'integrità)</h3>
+    <ul>
+      <li><strong>Avvisi visivi:</strong> Se una cella con formula si colora improvvisamente, una formula protetta è stata sovrascritta per errore con un valore fisso. Premi subito <em>Annulla</em> (<code>Ctrl+Z</code>) finché l'evidenziazione scompare.</li>
+      <li><strong>Regola d'oro:</strong> Inserisci i dati solo nei campi previsti. Poiché il file è aperto e non crittografato, puoi verificare e personalizzare ogni formula in autonomia.</li>
+    </ul>
+
+    <h3>🔐 Zero-Trust e Verifica crittografica</h3>
+    <p>Ci basiamo sulla verificabilità matematica anziché sulla fiducia cieca:</p>
+    <ul>
+      <li><strong>Impronta digitale (SHA-256):</strong> Confronta localmente l'hash del file scaricato (es. tramite <code>sha256sum hafuedat_v1.9.9.5.5.xlsx</code>) con il valore ufficiale:
+        <span class="hash-box">ab02ddb6c93c32fa2ff4c776a6b1523d97d88ba429312006b4b55c51d3e7d309</span>
+      </li>
+      <li><strong>Archivio pubblico (GitHub):</strong> La documentazione ufficiale e i checksum sono pubblicati su <a href="https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html" target="_blank" rel="noopener noreferrer">https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html</a>.</li>
+      <li><strong>Firma Ed25519 (<code>minisign</code>) &amp; W3C <code>did:key</code>:</strong> Le nostre pubblicazioni ufficiali sono firmate crittograficamente con la nostra chiave Ed25519 e ancorate all'identità decentralizzata <code>did:key:z6Mkfw3iLzZZ5H7jsRKs9fx1x9Ve4AcMNQjor3KCY216P8fa</code>.</li>
+    </ul>
+
+    <h3>📡 Supporto e Note legali</h3>
+    <ul>
+      <li><strong>Contatto:</strong> <a href="mailto:hafuedat@posteo.eu">hafuedat@posteo.eu</a> <em>(indicare l'ID dell'ordine per richieste tecniche)</em></li>
+      <li><strong>Licenza (EULA):</strong> Questo file è concesso in licenza esclusivamente per uso personale e privato. È vietata la distribuzione a terzi o la rivendita commerciale dell'architettura <em>Eternal Year Engine</em>.</li>
+      <li><strong>Esclusione di responsabilità:</strong> FinOS è uno strumento matematico per la panoramica finanziaria personale. Tutti i calcoli si basano esclusivamente sui dati inseriti dall'utente. Non si assume alcuna responsabilità per decisioni finanziarie o errori di inserimento.</li>
+    </ul>
+    <a class="back-top" href="#top">↑ Torna all'inizio</a>
+  </section>
+
+  <!-- 5. ESPAÑOL -->
+  <section id="es" class="lang-section" lang="es">
+    <h2>🇪🇸 GUÍA DE INICIO RÁPIDO (ESPAÑOL)</h2>
+    <div class="meta-block">
+      <strong>HAFÜDAT PRO – FinOS Financial Operating System (v1.9.9.5.5 – Eternal Year Engine)</strong><br>
+      Checkout oficial: <a href="https://www.checkout-ds24.com/product/725138" target="_blank" rel="noopener noreferrer">https://www.checkout-ds24.com/product/725138</a><br>
+      SHA-256 (<code>hafuedat_v1.9.9.5.5.xlsx</code>): <code>ab02ddb6c93c32fa2ff4c776a6b1523d97d88ba429312006b4b55c51d3e7d309</code><br>
+      <em>« Deja de gestionar finanzas. Encuentra claridad financiera. »</em>
+    </div>
+
+    <h3>🚀 Fase 1: Ingestión (Configuración y Arquitectura)</h3>
+    <p>FinOS necesita tus datos básicos una sola vez (aprox. 10 minutos) para funcionar con total precisión.</p>
+    <p><strong>1. Inicio del sistema y elección de plataforma</strong></p>
+    <ul>
+      <li><strong>Google Sheets:</strong> Ve a <em>Archivo &gt; Hacer una copia</em> para crear tu propia versión privada en Google Drive. Luego verifica en <em>Archivo &gt; Configuración &gt; Zona horaria</em> que esté seleccionada tu zona horaria local para que el cambio de fecha ocurra exactamente a medianoche.</li>
+      <li><strong>Local / Linux / PC:</strong> Utiliza el archivo de forma totalmente autónoma en tu ordenador, totalmente compatible con Microsoft Excel o LibreOffice Calc.</li>
+      <li><strong>El enfoque de carpetas para la eternidad:</strong> Crea una carpeta local llamada « Libro financiero » y copia este archivo maestro ligero y sin cifrar para cada nuevo año, manteniendo un historial financiero local durante décadas.</li>
+    </ul>
+    <p><strong>2. Configuración básica (PESTAÑA 4 – Configuración global)</strong><br>Abre la <strong>PESTAÑA 4</strong> para ajustar los parámetros globales:</p>
+    <ul>
+      <li><strong>Salary &amp; Wage (Celdas B3:C4):</strong> Introduce tus ingresos periódicos (<em>Amount</em>) y los días de pago correspondientes (<em>Payout Days</em>).</li>
+      <li><strong>Explanation Mode &amp; Language (Celdas B6:B7):</strong> Activa o desactiva el modo explicativo integrado (<code>on</code> / <code>off</code>) y elige tu idioma preferido en el menú desplegable (<code>English</code>, <code>Deutsch</code>, <code>Français</code>, <code>Italiano</code>, <code>Español</code>, <code>Polski</code>).</li>
+    </ul>
+    <p><strong>3. Config y Gastos fijos (PESTAÑA 3)</strong></p>
+    <ul>
+      <li><strong>Gastos fijos (PESTAÑA 3 – Config):</strong> Enumera todos los gastos recurrentes (alquiler, electricidad, suscripciones, seguros).</li>
+      <li><strong>Lógica inteligente:</strong> Usa las columnas « Von » (Desde) y « Bis » (Hasta) si un contrato empieza o termina a mitad de año. El motor calcula automáticamente 0,00 € fuera de ese periodo.</li>
+    </ul>
+
+    <h3>⚡ Fase 2: Operaciones diarias (Flujo de trabajo)</h3>
+    <p>FinOS está diseñado para un <strong>registro en 3 segundos</strong>, sin contabilidad compleja.</p>
+    <p><strong>📅 Lógica Smart-Date</strong><br>No hace falta escribir la fecha de hoy. Deja vacía la celda de fecha (<strong>PESTAÑA 1 – Celda A2</strong>) y FinOS mostrará automáticamente la fecha actual.</p>
+    <p><strong>💳 Registro de gastos (PESTAÑA 1 – INPUT)</strong></p>
+    <ul>
+      <li><strong>A) Retirada de efectivo (Cash Withdrawal):</strong> Introduce el importe retirado en la <strong>columna B (<code>B3:B33</code>)</strong>. El dinero pasa virtualmente de tu cuenta bancaria a tu cartera de efectivo.</li>
+      <li><strong>B) Gastos en efectivo (Cash):</strong> Registra los pagos en efectivo en la <strong>columna D (<code>D3:D33</code>)</strong>.</li>
+      <li><strong>C) Pagos con tarjeta y Transferencias (Bank Transfer):</strong> Introduce los importes en las <strong>columnas H:I (<code>H3:I33</code>)</strong>.</li>
+      <li><strong>D) Débito / Subcuenta:</strong> Registra recargas o cargos desde la cuenta principal en la sección bancaria (<code>H3:I33</code>) y detalla cada gasto en la sección Débito (<strong>columnas J:K / <code>J3:K33</code></strong>).</li>
+      <li><strong>E) Google Play &amp; Prepaid:</strong> Utiliza cuando lo necesites las columnas dedicadas <strong>Google Play (<code>L3:M33</code>)</strong> y <strong>Prepaid (<code>N3:O33</code>)</strong>.</li>
+    </ul>
+
+    <h3>🛡️ Fase 3: Mantenimiento y Reinicio mensual</h3>
+    <p>FinOS funciona de forma continua (<em>Eternal Year Engine</em>): no necesitas un archivo nuevo cada mes.</p>
+    <p><strong>Cambio de mes (el último día del mes):</strong></p>
+    <ol>
+      <li><strong>Archivado (PESTAÑA 2 – Dashboard):</strong>
+        <ul>
+          <li>Copia los totales mensuales de la <strong>fila 32</strong> y pégalos como solo valores (<em>Pegar solo valores</em>) en la <strong>fila 33 (Bóveda / Vault)</strong>.</li>
+          <li>Copia los valores de la <strong>fila 34</strong> y pégalos como solo valores en la <strong>fila 35 (Arrastre / Carryover)</strong>.</li>
+        </ul>
+      </li>
+      <li><strong>Limpieza (Wipe en la PESTAÑA 1):</strong>
+        <ul>
+          <li>Selecciona únicamente los rangos de entrada <strong><code>B3:B33</code></strong>, <strong><code>D3:D33</code></strong> y <strong><code>H3:O33</code></strong>, y pulsa <em>Supr</em>.</li>
+          <li><em>Importante:</em> No modifiques las columnas de fórmulas (<code>C</code>, <code>E</code>, <code>F</code>, <code>G</code>).</li>
+        </ul>
+      </li>
+      <li><strong>Reinicio:</strong> El sistema cambia automáticamente al nuevo mes.</li>
+    </ol>
+
+    <h3>⚠️ Protección del núcleo (Salvaguarda de integridad)</h3>
+    <ul>
+      <li><strong>Alertas visuales:</strong> Si una celda de fórmula se colorea de repente, se ha sobrescrito accidentalmente una fórmula protegida con un valor fijo. Pulsa de inmediato <em>Deshacer</em> (<code>Ctrl+Z</code>) hasta que desaparezca el aviso.</li>
+      <li><strong>Regla de oro:</strong> Introduce datos únicamente en los campos previstos. Al ser un archivo abierto y sin cifrar, puedes auditar y adaptar cada fórmula por tu cuenta.</li>
+    </ul>
+
+    <h3>🔐 Zero-Trust y Verificación criptográfica</h3>
+    <p>Apostamos por la verificabilidad matemática en lugar de la confianza ciega:</p>
+    <ul>
+      <li><strong>Huella digital (SHA-256):</strong> Compara localmente el hash de tu archivo descargado (p. ej., mediante <code>sha256sum hafuedat_v1.9.9.5.5.xlsx</code>) con el valor oficial:
+        <span class="hash-box">ab02ddb6c93c32fa2ff4c776a6b1523d97d88ba429312006b4b55c51d3e7d309</span>
+      </li>
+      <li><strong>Archivo público (GitHub):</strong> La documentación oficial y las sumas de verificación están publicadas en <a href="https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html" target="_blank" rel="noopener noreferrer">https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html</a>.</li>
+      <li><strong>Firma Ed25519 (<code>minisign</code>) &amp; W3C <code>did:key</code>:</strong> Nuestras publicaciones oficiales están firmadas criptográficamente con nuestra clave Ed25519 y vinculadas a nuestra identidad descentralizada <code>did:key:z6Mkfw3iLzZZ5H7jsRKs9fx1x9Ve4AcMNQjor3KCY216P8fa</code>.</li>
+    </ul>
+
+    <h3>📡 Soporte y Aviso legal</h3>
+    <ul>
+      <li><strong>Contacto:</strong> <a href="mailto:hafuedat@posteo.eu">hafuedat@posteo.eu</a> <em>(indica tu ID de pedido en consultas técnicas)</em></li>
+      <li><strong>Licencia (EULA):</strong> Este archivo se licencia exclusivamente para uso personal y privado. Queda prohibida su distribución a terceros o la reventa comercial de la arquitectura <em>Eternal Year Engine</em>.</li>
+      <li><strong>Exención de responsabilidad:</strong> FinOS es una herramienta matemática para el control financiero personal. Todos los cálculos se basan exclusivamente en tus propios datos introducidos. No se asume ninguna responsabilidad por decisiones financieras o errores de entrada.</li>
+    </ul>
+    <a class="back-top" href="#top">↑ Volver arriba</a>
+  </section>
+
+  <!-- 6. POLSKI -->
+  <section id="pl" class="lang-section" lang="pl">
+    <h2>🇵🇱 KRÓTKI PRZEWODNIK STARTU (POLSKI)</h2>
+    <div class="meta-block">
+      <strong>HAFÜDAT PRO – FinOS Financial Operating System (v1.9.9.5.5 – Eternal Year Engine)</strong><br>
+      Oficjalny link zamówienia: <a href="https://www.checkout-ds24.com/product/725138" target="_blank" rel="noopener noreferrer">https://www.checkout-ds24.com/product/725138</a><br>
+      SHA-256 (<code>hafuedat_v1.9.9.5.5.xlsx</code>): <code>ab02ddb6c93c32fa2ff4c776a6b1523d97d88ba429312006b4b55c51d3e7d309</code><br>
+      <em>„Przestań zarządzać finansami. Odnajdź finansową przejrzystość.“</em>
+    </div>
+
+    <h3>🚀 Faza 1: Inicjalizacja (Konfiguracja i Architektura)</h3>
+    <p>Aby system FinOS działał z pełną precyzją, wymaga jednorazowego wprowadzenia podstawowych danych (ok. 10 minut).</p>
+    <p><strong>1. Uruchomienie systemu i wybór platformy</strong></p>
+    <ul>
+      <li><strong>Google Sheets:</strong> Wybierz <em>Plik &gt; Utwórz kopię</em>, aby zapisać własną, prywatną wersję na swoim Dysku Google. Następnie sprawdź w <em>Plik &gt; Ustawienia &gt; Strefa czasowa</em>, czy ustawiona jest Twoja lokalna strefa czasowa, aby zmiana daty następowała dokładnie o północy.</li>
+      <li><strong>Lokalnie / Linux / PC:</strong> Korzystaj z pliku całkowicie niezależnie na swoim komputerze – pełna zgodność z Microsoft Excel oraz LibreOffice Calc.</li>
+      <li><strong>Podejście folderowe na lata:</strong> Utwórz lokalny folder „Księga finansowa” i kopiuj ten lekki, niezaszyfrowany plik główny na każdy kolejny rok, budując spójną lokalną historię finansową na dziesięciolecia.</li>
+    </ul>
+    <p><strong>2. Ustawienia podstawowe (ZAKŁADKA 4 – Konfiguracja globalna)</strong><br>Przejdź do <strong>ZAKŁADKI 4</strong>, aby skonfigurować parametry globalne:</p>
+    <ul>
+      <li><strong>Salary &amp; Wage (Komórki B3:C4):</strong> Wpisz swoje regularne dochody (<em>Amount</em>) oraz odpowiadające im dni wypłaty (<em>Payout Days</em>).</li>
+      <li><strong>Explanation Mode &amp; Language (Komórki B6:B7):</strong> Włącz lub wyłącz wbudowany tryb objaśnień (<code>on</code> / <code>off</code>) i wybierz preferowany język z listy rozwijanej (<code>English</code>, <code>Deutsch</code>, <code>Français</code>, <code>Italiano</code>, <code>Español</code>, <code>Polski</code>).</li>
+    </ul>
+    <p><strong>3. Konfiguracja i koszty stałe (ZAKŁADKA 3)</strong></p>
+    <ul>
+      <li><strong>Koszty stałe (ZAKŁADKA 3 – Config):</strong> Wpisz wszystkie cykliczne wydatki (czynsz, prąd, subskrypcje, ubezpieczenia).</li>
+      <li><strong>Inteligentna logika:</strong> Użyj kolumn „Von” (Od) oraz „Bis” (Do), jeśli umowa zaczyna się lub kończy w trakcie roku. Silnik automatycznie oblicza 0,00 € poza tym okresem.</li>
+    </ul>
+
+    <h3>⚡ Faza 2: Codzienna obsługa (Daily Ops)</h3>
+    <p>FinOS został zaprojektowany z myślą o <strong>3-sekundowym wprowadzaniu danych</strong> bez skomplikowanej księgowości.</p>
+    <p><strong>📅 Inteligentna logika daty (Smart-Date)</strong><br>Nie musisz wpisywać dzisiejszej daty ręcznie. Jeśli pozostawisz komórkę daty (<strong>ZAKŁADKA 1 – Komórka A2</strong>) pustą, FinOS automatycznie wstawi bieżącą datę.</p>
+    <p><strong>💳 Rejestrowanie wydatków (ZAKŁADKA 1 – INPUT)</strong></p>
+    <ul>
+      <li><strong>A) Wypłata gotówki (Cash Withdrawal):</strong> Wpisz wypłaconą kwotę w <strong>kolumnie B (<code>B3:B33</code>)</strong>. Środki wirtualnie przenoszą się z konta bankowego do portfela gotówkowego.</li>
+      <li><strong>B) Wydatki gotówkowe (Cash):</strong> Rejestruj płatności gotówką w <strong>kolumnie D (<code>D3:D33</code>)</strong>.</li>
+      <li><strong>C) Płatności kartą i przelewy (Bank Transfer):</strong> Wpisuj kwoty w <strong>kolumnach H:I (<code>H3:I33</code>)</strong>.</li>
+      <li><strong>D) Karta debetowa / Subkonto:</strong> Zasilenia i obciążenia z konta głównego zapisuj w sekcji bankowej (<code>H3:I33</code>), a pojedyncze wydatki wyszczególnij w sekcji Debet (<strong>kolumny J:K / <code>J3:K33</code></strong>).</li>
+      <li><strong>E) Google Play i Prepaid:</strong> W razie potrzeby korzystaj z dedykowanych kolumn <strong>Google Play (<code>L3:M33</code>)</strong> oraz <strong>Prepaid (<code>N3:O33</code>)</strong>.</li>
+    </ul>
+
+    <h3>🛡️ Faza 3: Konserwacja i reset miesięczny</h3>
+    <p>FinOS działa w trybie ciągłym (<em>Eternal Year Engine</em>) – nie potrzebujesz nowego pliku na kolejny miesiąc.</p>
+    <p><strong>Zmiana miesiąca (ostatniego dnia miesiąca):</strong></p>
+    <ol>
+      <li><strong>Archiwizacja (ZAKŁADKA 2 – Dashboard):</strong>
+        <ul>
+          <li>Skopiuj sumy miesięczne z <strong>wiersza 32</strong> i wklej je jako same wartości (<em>Wklej tylko wartości</em>) do <strong>wiersza 33 (Skarbiec / Vault)</strong>.</li>
+          <li>Skopiuj wartości z <strong>wiersza 34</strong> i wklej je jako same wartości do <strong>wiersza 35 (Przeniesienie / Carryover)</strong>.</li>
+        </ul>
+      </li>
+      <li><strong>Czyszczenie (Wipe w ZAKŁADCE 1):</strong>
+        <ul>
+          <li>Zaznacz wyłącznie zakresy wprowadzania danych <strong><code>B3:B33</code></strong>, <strong><code>D3:D33</code></strong> oraz <strong><code>H3:O33</code></strong>, a następnie naciśnij <em>Delete</em>.</li>
+          <li><em>Ważne:</em> Pozostaw kolumny z formułami (<code>C</code>, <code>E</code>, <code>F</code>, <code>G</code>) nienaruszone.</li>
+        </ul>
+      </li>
+      <li><strong>Restart:</strong> System automatycznie przełączy się na nowy miesiąc.</li>
+    </ol>
+
+    <h3>⚠️ Ochrona jądra (Zabezpieczenie integralności)</h3>
+    <ul>
+      <li><strong>Ostrzeżenia kolorystyczne:</strong> Jeśli komórka z formułą nagle zmieni kolor, chroniona formuła została przypadkowo nadpisana stałą wartością. Natychmiast użyj funkcji <em>Cofnij</em> (<code>Ctrl+Z</code>), aż oznaczenie zniknie.</li>
+      <li><strong>Złota zasada:</strong> Wprowadzaj dane wyłącznie w wyznaczonych polach. Ponieważ plik jest otwarty i niezaszyfrowany, możesz w każdej chwili samodzielnie sprawdzić i dostosować każdą formułę.</li>
+    </ul>
+
+    <h3>🔐 Zero-Trust i weryfikacja kryptograficzna</h3>
+    <p>Stawiamy na matematyczną weryfikowalność zamiast ślepego zaufania:</p>
+    <ul>
+      <li><strong>Cyfrowy odcisk palca (SHA-256):</strong> Porównaj lokalnie sumę kontrolną pobranego pliku (np. za pomocą <code>sha256sum hafuedat_v1.9.9.5.5.xlsx</code>) z oficjalną wartością:
+        <span class="hash-box">ab02ddb6c93c32fa2ff4c776a6b1523d97d88ba429312006b4b55c51d3e7d309</span>
+      </li>
+      <li><strong>Publiczne archiwum wydań (GitHub):</strong> Oficjalna dokumentacja oraz sumy kontrolne są opublikowane pod adresem <a href="https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html" target="_blank" rel="noopener noreferrer">https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html</a>.</li>
+      <li><strong>Podpis Ed25519 (<code>minisign</code>) oraz W3C <code>did:key</code>:</strong> Nasze oficjalne wydania są podpisane kryptograficznie kluczem Ed25519 i powiązane ze zdecentralizowanym identyfikatorem <code>did:key:z6Mkfw3iLzZZ5H7jsRKs9fx1x9Ve4AcMNQjor3KCY216P8fa</code>.</li>
+    </ul>
+
+    <h3>📡 Wsparcie i informacje prawne</h3>
+    <ul>
+      <li><strong>Kontakt:</strong> <a href="mailto:hafuedat@posteo.eu">hafuedat@posteo.eu</a> <em>(w przypadku pytań technicznych prosimy o podanie numeru zamówienia)</em></li>
+      <li><strong>Licencja (EULA):</strong> Ten plik jest licencjonowany wyłącznie do użytku prywatnego. Przekazywanie osobom trzecim lub komercyjna odsprzedaż architektury <em>Eternal Year Engine</em> są zabronione.</li>
+      <li><strong>Wyłączenie odpowiedzialności:</strong> FinOS jest narzędziem matematycznym do osobistego przeglądu finansów. Wszystkie obliczenia opierają się wyłącznie na danych wprowadzonych przez użytkownika. Nie ponosimy odpowiedzialności za decyzje finansowe ani błędy wprowadzania danych.</li>
+    </ul>
+    <a class="back-top" href="#top">↑ Powrót na górę</a>
+  </section>
+
+</div>
+</body>
+</html>
