@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAFÜDAT PRO – FinOS v1.9.9.5.5 | Persönliches Finanz-Betriebssystem</title>
+  <meta name="description" content="Klarheit auf den ersten Blick: Dein persönlicher Finanzüberblick für jeden Tag. HAFÜDAT PRO – FinOS v1.9.9.5.5 als Einmalkauf mit 60 Tagen Rückgaberecht.">
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #171e26;
+      --surface-alt: #1d2630;
+      --border: #2a3644;
+      --text: #eef2f6;
+      --muted: #9fb0c2;
+      --accent: #38bdf8;
+      --accent-hover: #0ea5e9;
+      --ok: #34d399;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 20px 18px 56px;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
+    .hero {
+      padding: 36px 0 28px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--ok);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(1.65rem, 3.8vw, 2.35rem);
+      line-height: 1.22;
+      letter-spacing: -0.01em;
+    }
+    .subtitle {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 720px;
+    }
+    .cta-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .price-block .price {
+      font-size: 1.9rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .price-block .price-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #06121c;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 24px;
+      border-radius: 8px;
+      transition: background 0.15s ease;
+    }
+    .cta-btn:hover {
+      background: var(--accent-hover);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+    .card p {
+      margin: 0;
+      font-size: 0.93rem;
+      color: var(--muted);
+    }
+    .section {
+      margin-top: 30px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+    }
+    .section h2 {
+      margin: 0 0 12px;
+      font-size: 1.18rem;
+    }
+    ul.clean-list {
+      margin: 8px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+    ul.clean-list li {
+      margin-bottom: 6px;
+    }
+    .mono-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      overflow-x: auto;
+      word-break: break-all;
+      margin: 10px 0;
+    }
+    .mono-box strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .text-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-bottom: 1px solid transparent;
+    }
+    .text-link:hover {
+      border-bottom-color: var(--accent);
+    }
+    details {
+      margin-top: 12px;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+    .legal-text {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer {
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">HAFÜDAT PRO · FinOS v1.9.9.5.5</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="badge">Einmalkauf · Lokal &amp; Offline · Makrofrei</div>
+        <h1>Klarheit auf den ersten Blick: Dein persönlicher Finanzüberblick für jeden Tag.</h1>
+        <p class="subtitle">
+          HAFÜDAT PRO – FinOS v1.9.9.5.5 bietet dir ein ruhiges, vollständig lokal arbeitendes Finanz-Betriebssystem (Eternal Year Engine) für Haushalt, Budget und laufende Ausgaben – ohne Abo, ohne Cloud-Zwang und ohne Makros.
+        </p>
+
+        <div class="cta-box">
+          <div class="price-block">
+            <div class="price">19,00 €</div>
+            <div class="price-note">Einmalzahlung (inkl. MwSt.) · Dauerhafte Nutzung · 60 Tage Rückgaberecht</div>
+          </div>
+          <a class="cta-btn" href="https://www.checkout-ds24.com/product/771941" rel="noopener">
+            Jetzt direkt sichern →
+          </a>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>100 % Lokal &amp; Offline</h2>
+          <p>Deine Finanzdaten verbleiben vollständig auf deinem eigenen Gerät. Kein Konto, keine Cloud-Pflicht und volle Arbeitsoberfläche in gängigen Tabellenkalkulationen.</p>
+        </article>
+        <article class="card">
+          <h2>Eternal Year Engine &amp; Makrofrei</h2>
+          <p>Durchgängige Jahres- und Monatsstruktur mit transparenten Standardformeln – ohne Makros, externe Skripte oder versteckte Abhängigkeiten.</p>
+        </article>
+        <article class="card">
+          <h2>Klarer Alltag &amp; Einmalkauf</h2>
+          <p>Einmal bezahlen (19,00 €), dauerhaft nutzen und mit 60 Tagen Rückgaberecht risikofrei im eigenen Alltag prüfen.</p>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2>Was du erhältst &amp; wie es funktioniert</h2>
+        <ul class="clean-list">
+          <li><strong>Haushalts- und Budgettabelle (<code>hafuedat_v1.9.9.5.5.xlsx</code>):</strong> Sofort einsatzbereit für Einnahmen, Fixkosten, variable Ausgaben und Jahresübersicht.</li>
+          <li><strong>Begleitender Quick Start Guide:</strong> Schrittweise Orientierung für den schnellen Einstieg ohne komplizierte Einarbeitung.</li>
+          <li><strong>Faire Rahmenbedingungen:</strong> Einmaliger Kaufpreis von 19,00 € statt laufender Abogebühren sowie 60 Tage Rückgaberecht über den Reseller Digistore24.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Kryptografische Integrität &amp; Herkunftsnachweis</h2>
+        <p style="margin:0 0 12px; color:var(--muted); font-size:0.93rem;">
+          Die Integrität der Release-Datei <strong>hafuedat_v1.9.9.5.5.xlsx</strong> lässt sich unabhängig über SHA-256, Ed25519 (minisign) und den W3C-Identifier nachprüfen.
+        </p>
+        <div class="mono-box">
+          <strong>SHA-256 (hafuedat_v1.9.9.5.5.xlsx)</strong>
+          7c2d955c10581f57ea54aeb37a1ba7d8d9706b172885c6f85e28b12c7a4ace44
+        </div>
+        <div class="mono-box">
+          <strong>W3C Decentralized Identifier (did:key)</strong>
+          did:key:z6Mkfw3iLzZZ5H7jsRKs9fx1x9Ve4AcMNQjor3KCY216P8fa
+        </div>
+        <div class="links-row">
+          <a class="text-link" href="https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html">Quick Start Guide öffnen</a>
+          <a class="text-link" href="https://hafuedat-core.github.io/verify.html">Datei im Browser prüfen (verify.html)</a>
+          <a class="text-link" href="https://hafuedat-core.github.io/hafuedat_v1.9.9.5.5.xlsx.sha256">SHA-256 Prüfsumme</a>
+          <a class="text-link" href="https://hafuedat-core.github.io/hafuedat_v1.9.9.5.5.xlsx.minisig">Minisign Signatur</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Rechtliche Hinweise, Anbieter &amp; Datenschutz</h2>
+        <p style="margin:0; color:var(--muted); font-size:0.9rem;">
+          Die Bestellabwicklung und Auslieferung erfolgen über den Reseller Digistore24 GmbH (Produkt-ID 771941) mit 60 Tagen Rückgaberecht.
+        </p>
+
+        <details>
+          <summary>Anbieterkennzeichnung / Impressum &amp; Kontakt</summary>
+          <div class="legal-text">
+            <strong>Verantwortlich für Inhalt und Softwareentwicklung:</strong><br>
+            Tobias Stratmann · Einzelunternehmen (Softwareentwicklung)<br>
+            Berlin, Deutschland<br>
+            E-Mail: <a class="text-link" href="mailto:hafuedat@posteo.eu">hafuedat@posteo.eu</a><br>
+            Steuerlicher Hinweis: Kleinunternehmerregelung gemäß § 19 UStG.
+          </div>
+        </details>
+
+        <details>
+          <summary>Datenschutzhinweis (GitHub Pages &amp; Digistore24)</summary>
+          <div class="legal-text">
+            Beim Abruf über GitHub Pages verarbeitet der Hostinganbieter GitHub Inc. technisch erforderliche Verbindungsdaten (z. B. IP-Adresse) zur Auslieferung der Inhalte. Zur Affiliate-Zuordnung und Bestellweiterleitung für Produkt 771941 ist das offizielle Digistore24-Promocode-Skript (<code>digistore.js</code>) eingebunden; beim Klick auf den Bestell-Button erfolgt die Weiterleitung zum Reseller Digistore24, wo dessen Datenschutzbestimmungen gelten.
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      HAFÜDAT PRO – FinOS v1.9.9.5.5 · Produkt-ID 771941 · Kontakt: hafuedat@posteo.eu
+    </footer>
+  </div>
+
+  <script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+  <script type="text/javascript">
+    digistorePromocode( { "product_id": 771941, "adjust_domain": true } );
+  </script>
+</body>
+</html>

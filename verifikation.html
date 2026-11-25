@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verifikation &amp; Zero Trust | HAFÜDAT PRO – FinOS v1.9.9.5.5</title>
+  <meta name="description" content="Bildungszusatz zur kryptografischen Verifikation und Zero-Trust-Architektur rund um HAFÜDAT PRO – FinOS v1.9.9.5.5, SHA-256, Ed25519 (minisign) und W3C did:key.">
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #171e26;
+      --surface-alt: #1d2630;
+      --border: #2a3644;
+      --text: #eef2f6;
+      --muted: #9fb0c2;
+      --accent: #38bdf8;
+      --accent-hover: #0ea5e9;
+      --ok: #34d399;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 20px 18px 60px;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.9rem;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    .hero {
+      padding: 34px 0 22px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--ok);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(1.6rem, 3.6vw, 2.25rem);
+      line-height: 1.22;
+    }
+    .two-liner {
+      background: var(--surface);
+      border-left: 4px solid var(--accent);
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 18px;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    .two-liner p {
+      margin: 0;
+    }
+    .two-liner p + p {
+      margin-top: 6px;
+      color: var(--muted);
+    }
+    .section {
+      margin-top: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+    }
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+    }
+    .section h3 {
+      margin: 18px 0 6px;
+      font-size: 1.02rem;
+      color: var(--accent);
+    }
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+    .mono-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      overflow-x: auto;
+      word-break: break-all;
+      margin: 10px 0;
+    }
+    .mono-box strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 3px;
+    }
+    .steps {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+    .steps li {
+      margin-bottom: 8px;
+    }
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .btn-link, .text-link {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-radius: 8px;
+    }
+    .btn-link {
+      background: var(--accent);
+      color: #06121c;
+      font-weight: 700;
+      padding: 10px 16px;
+    }
+    .btn-link:hover {
+      background: var(--accent-hover);
+    }
+    .text-link {
+      color: var(--accent);
+      padding: 10px 4px;
+      border-bottom: 1px solid transparent;
+    }
+    .text-link:hover {
+      border-bottom-color: var(--accent);
+    }
+    footer {
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">HAFÜDAT PRO · VERIFIKATION &amp; ZERO TRUST</div>
+      <nav class="nav-links" aria-label="Seitennavigation">
+        <a href="./pro.html">Zur Verkaufsseite</a>
+        <a href="./QUICKSTARTGUIDE1.9.9.5.5.html">Quick Start Guide</a>
+        <a href="./verify.html">Browser-Prüfung</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="badge">Bildungszusatz · Mathematische Nachprüfbarkeit</div>
+        <h1>Verifikation statt Blindvertrauen</h1>
+
+        <div class="two-liner" aria-label="Kurzfassung in zwei Zeilen">
+          <p><strong>1.</strong> Ein Prüfwert (SHA-256) zeigt, ob deine Datei exakt und unverändert vorliegt; eine Signatur (Ed25519 / minisign) zeigt, dass sie vom Inhaber des öffentlichen Schlüssels stammt.</p>
+          <p><strong>2.</strong> Du musst nicht darauf hoffen, dass ein Kanal oder eine Plattform „ehrlich“ wirkt – du kannst die Übereinstimmung selbst prüfen.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Automatisierte Prüfung &amp; Vertrauensanker</h2>
+        <p>
+          Wenn dir die Herkunft und Unversehrtheit der Datei <strong>hafuedat_v1.9.9.5.5.xlsx</strong> über den kryptografischen Anker des Herausgebers (Tobias Stratmann / HAFÜDAT) zugeordnet werden soll, greifen drei Bausteine ineinander: Hashwert, digitale Signatur und dezentraler Schlüsselanker.
+        </p>
+
+        <ol class="steps">
+          <li><strong>Fingerabdruck prüfen (SHA-256):</strong> Jedes Bit der Datei erzeugt einen eindeutigen 256-Bit-Hashwert. Schon ein einziges verändertes Zeichen verändert diesen Wert vollständig.</li>
+          <li><strong>Signatur gegen den öffentlichen Schlüssel prüfen (Ed25519 / minisign):</strong> Die zugehörige Signaturdatei bestätigt, dass der Hashwert mit dem geheimen Schlüssel des Herausgebers signiert wurde – ohne dass der geheime Schlüssel jemals offengelegt wird.</li>
+          <li><strong>Automatisierte oder browsergestützte Prüfung ausführen:</strong> Über <code>verify.html</code> bzw. die bereitgestellten Prüfdateien lassen sich Hash und Signatur direkt abgleichen.</li>
+        </ol>
+
+        <div class="mono-box">
+          <strong>Erwarteter SHA-256-Hash (hafuedat_v1.9.9.5.5.xlsx)</strong>
+          7c2d955c10581f57ea54aeb37a1ba7d8d9706b172885c6f85e28b12c7a4ace44
+        </div>
+        <div class="mono-box">
+          <strong>W3C Decentralized Identifier (Vertrauensanker / did:key)</strong>
+          did:key:z6Mkfw3iLzZZ5H7jsRKs9fx1x9Ve4AcMNQjor3KCY216P8fa
+        </div>
+
+        <div class="links-row">
+          <a class="btn-link" href="./verify.html">Automatische Prüfung in verify.html öffnen</a>
+          <a class="text-link" href="./hafuedat_v1.9.9.5.5.xlsx.sha256">Datei: .sha256</a>
+          <a class="text-link" href="./hafuedat_v1.9.9.5.5.xlsx.minisig">Datei: .minisig</a>
+          <a class="text-link" href="./MANIFEST.sha256">Repository-Manifest</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Zero Trust &amp; Digitale Souveränität</h2>
+        <p>
+          Klassische digitale Abläufe beruhen oft auf <em>implizitem Vertrauen</em>: Man vertraut einem Download-Link, einem Server, einem Konto oder einem Zwischenhändler, weil es bequem ist. <strong>Zero Trust</strong> kehrt diese Annahme um: Kein Transportweg, kein Server und keine Zwischenstation wird blind als vertrauenswürdig vorausgesetzt – entscheidend ist die <strong>prüfbare mathematische Integrität am Endpunkt</strong>.
+        </p>
+
+        <h3>1. Trennung von Auslieferungskanal und Integritätsbeweis</h3>
+        <p>
+          Ein Auslieferungsweg (etwa ein Shop, ein Dateihoster oder ein Git-Repository) transportiert Dateien. Selbst wenn ein Kanal ausfällt, gewechselt wird oder angezweifelt wird, bleibt der kryptografische Beweis an die Datei und den öffentlichen Schlüssel gebunden. Integrität hängt damit nicht an der „Stimmung“ oder Dauerhaftigkeit eines Vermittlers, sondern an Mathematik.
+        </p>
+
+        <h3>2. Minimale Angriffsfläche &amp; lokale Souveränität</h3>
+        <p>
+          Digitale Souveränität bedeutet im Alltag, eigene Daten nicht unnötig in fremde Hände zu geben und Werkzeuge zu nutzen, die lokal und nachvollziehbar arbeiten. Eine makrofreie Tabellenkalkulation ohne Cloud-Zwang und ein Verifikationsschritt ohne versteckte Drittanbieter-Skripte halten die Abhängigkeiten klein und durchschaubar.
+        </p>
+
+        <h3>3. Vom „Glauben“ zum eigenständigen Nachprüfen</h3>
+        <p>
+          Vertrauen im menschlichen Miteinander ist wertvoll – in der technischen Lieferkette ist <strong>Nachprüfbarkeit</strong> jedoch der verlässlichere Schutz. Wer einen Hashwert und eine Signatur prüft, übernimmt selbst die Kontrolle darüber, was auf dem eigenen Rechner landet, statt nur einem Versprechen zu folgen.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      HAFÜDAT PRO – FinOS v1.9.9.5.5 · Zero-Trust- &amp; Verifikationshinweis · Kontakt: hafuedat@posteo.eu
+    </footer>
+  </div>
+</body>
+</html>

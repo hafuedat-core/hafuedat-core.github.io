@@ -1,8 +1,10 @@
+64c230df47f434d9c680aa58f968a5f9010ad4445b649b43e4a86fd224e282c5  ./.gitignore
 b77d926419e4aad26c64b6cb2d4270bfa3ce114a73c347ff74a5b47783081e2f  ./QUICKSTARTGUIDE1.9.9.5.5.html
 c4d8fdf396219ab0d99e416f1aea31c703f72766fbeac9e13b303e9cbf2cc333  ./README.md
 7c2d955c10581f57ea54aeb37a1ba7d8d9706b172885c6f85e28b12c7a4ace44  ./hafuedat_v1.9.9.5.5.xlsx
 814b086bf4371540b90e158ddee4a57961e5fb4e3823aa670dd70e2d3f82e789  ./hafuedat_v1.9.9.5.5.xlsx.minisig
 8922705843ef3cd4afc08bc31f675d08e20c756dc659b23226dc3f27c9669044  ./hafuedat_v1.9.9.5.5.xlsx.sha256
+24b42c97f2dfefdc8772cf92ef55333de4ba2f80ba3b3feb9862c0ab145c99aa  ./pro.html
 d322b39a573caa5bf8dfc4251bcc45c6506ab43a66ef60ae770517034a353cc6  ./tpm-architektur-integritaet.md
 b4a841f6141a939f94b5b8dc79683ba57c71ac2230b2ae47929381c0a0e22a56  ./tpm-architektur-integritaet.md.minisig
 cc31503598be4629f4ab296b1bb202f88d3f51d5e170dab3bf9e9fe9fa42f15c  ./vault/ACT.enc
@@ -38,4 +40,5 @@ aea3c7fef487aa7f183006d3b21c619d6e8d9e97df737f3f22d38574152653df  ./vault/test.s
 f30914b8b639ea7513d3ebf5abdfaff6e89caa42de56b7438750be530d75ec65  ./vault/werbung.enc
 df9e1bf9547a0260fff1a7452b5cb7ccf106d526ff2b9077ec428138de2a66ce  ./vault/werbung.minisig
 5207490494d2c5f4de57dda6576e8598f6cefb51ef974b2f32b4cc25de0fb3c4  ./vault/werbung.sig
+bbe1599c3adb26bf8dee83c026f16c3f4dbcc05d06557627c5857ecb9f7bd6ae  ./verifikation.html
 391e2b42d81363bee0efce57b32d614b73461d941fa62a0ae4957ef3c9978841  ./verify.html
