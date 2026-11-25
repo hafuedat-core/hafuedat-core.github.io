@@ -3,241 +3,193 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HAFÜDAT PRO – Verifikation &amp; Kryptografischer Vertrauensanker (FinOS v1.9.9.5.5)</title>
-  <meta name="description" content="Unabhängige Integritäts- und Herkunftsprüfung für HAFÜDAT PRO – FinOS v1.9.9.5.5 über SHA-256, Ed25519 (minisign) und W3C did:key.">
+  <title>HAFÜDAT PRO – Release-Verifikation (FinOS v1.9.9.5.5)</title>
   <style>
     :root {
       --bg: #0f1419;
       --surface: #171e26;
-      --surface-alt: #1d2630;
       --border: #2a3644;
       --text: #eef2f6;
       --muted: #9fb0c2;
       --accent: #38bdf8;
-      --accent-hover: #0ea5e9;
       --ok: #34d399;
+      --err: #f87171;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
     * { box-sizing: border-box; }
     body {
-      margin: 0;
+      font-family: var(--sans);
       background: var(--bg);
       color: var(--text);
-      font-family: var(--sans);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    .wrap {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 20px 18px 56px;
-    }
-    header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--border);
-    }
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      font-size: 0.95rem;
-      color: var(--accent);
-    }
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-    .text-link {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.9rem;
-      border-bottom: 1px solid transparent;
-    }
-    .text-link:hover {
-      border-bottom-color: var(--accent);
-    }
-    .hero {
-      padding: 34px 0 22px;
-    }
-    .badge {
-      display: inline-block;
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-      color: var(--ok);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-bottom: 14px;
-    }
-    h1 {
-      margin: 0 0 14px;
-      font-size: clamp(1.6rem, 3.6vw, 2.25rem);
-      line-height: 1.24;
-      letter-spacing: -0.01em;
-    }
-    .subtitle {
       margin: 0;
-      color: var(--muted);
-      font-size: 1.02rem;
-      max-width: 740px;
+      padding: 20px;
+      line-height: 1.6;
     }
-    .section {
-      margin-top: 24px;
+    .box {
+      max-width: 780px;
+      margin: 0 auto;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 22px;
     }
-    .section h2 {
-      margin: 0 0 10px;
-      font-size: 1.15rem;
-    }
-    .section p {
-      margin: 0 0 12px;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-    .mono-box {
+    h1 { margin: 0 0 8px; font-size: 1.45rem; }
+    h2 { margin: 22px 0 8px; font-size: 1.1rem; }
+    p { margin: 0 0 10px; color: var(--muted); font-size: 0.94rem; }
+    code, pre {
+      font-family: var(--mono);
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 12px 14px;
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      color: var(--text);
-      overflow-x: auto;
-      word-break: break-all;
-      margin: 10px 0;
-    }
-    .mono-box .label {
-      color: var(--muted);
-      font-size: 0.76rem;
+      padding: 10px 12px;
       display: block;
-      margin-bottom: 4px;
+      overflow-x: auto;
+      font-size: 0.82rem;
+      color: var(--text);
+      word-break: break-all;
     }
-    pre.code-block {
+    pre { word-break: normal; }
+    .file-input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 14px;
-      font-family: var(--mono);
-      font-size: 0.8rem;
       color: var(--text);
-      overflow-x: auto;
-      margin: 10px 0 0;
-      line-height: 1.5;
+      font-size: 0.9rem;
     }
-    .cta-btn {
-      display: inline-block;
-      background: var(--accent);
-      color: #06121c;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.94rem;
-      padding: 11px 18px;
+    .status {
+      margin-top: 12px;
+      padding: 12px 14px;
       border-radius: 8px;
-      margin-top: 6px;
-      transition: background 0.15s ease;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      font-size: 0.88rem;
+      display: none;
     }
-    .cta-btn:hover {
-      background: var(--accent-hover);
-    }
-    .links-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 14px;
-    }
-    footer {
-      margin-top: 34px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      font-size: 0.84rem;
-      color: var(--muted);
-    }
+    .status.ok { border-color: var(--ok); color: var(--ok); display: block; }
+    .status.err { border-color: var(--err); color: var(--err); display: block; }
+    .status.info { border-color: var(--accent); color: var(--accent); display: block; }
+    .links { margin-top: 20px; font-size: 0.9rem; }
+    a { color: var(--accent); }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">HAFÜDAT PRO · Kryptografische Verifikation</div>
-      <nav class="nav-links">
-        <a class="text-link" href="https://hafuedat-core.github.io/pro.html">Produktübersicht</a>
-        <a class="text-link" href="https://hafuedat-core.github.io/verify.html">Browser-Prüfung (verify.html)</a>
-      </nav>
-    </header>
+  <div class="box">
+    <h1>Release-Verifikation · FinOS v1.9.9.5.5</h1>
+    <p>Lokale Integritäts- und Herkunftsprüfung für <strong>hafuedat_v1.9.9.5.5.xlsx</strong> – vollständig im Browser, ohne Datei-Upload.</p>
 
-    <main>
-      <section class="hero">
-        <div class="badge">Zero-Trust · Offline-Prüfung · Ed25519 &amp; SHA-256</div>
-        <h1>Echtheit &amp; Integrität ohne Vertrauensvorschuss prüfen.</h1>
-        <p class="subtitle">
-          Jedes offizielle Release von <strong>HAFÜDAT PRO – FinOS v1.9.9.5.5</strong> lässt sich lokal und ohne Cloud-Abhängigkeit mathematisch auf Unverändertheit (SHA-256) und authentische Signatur (Ed25519 / minisign) überprüfen.
-        </p>
-      </section>
+    <h2>1. Lokale SHA-256-Dateiprüfung im Browser</h2>
+    <p>Wähle die heruntergeladene Datei (<code>hafuedat_v1.9.9.5.5.xlsx</code>) aus. Optional kannst du auch eine <code>.sha256</code>-Prüfsummendatei gegenprüfen.</p>
 
-      <section class="section">
-        <h2>1. Kryptografischer Vertrauensanker (W3C did:key &amp; Minisign)</h2>
-        <p>
-          Der öffentliche Ed25519-Signaturschlüssel ist selbstbeschreibend als W3C Decentralized Identifier (<code>did:key</code>) sowie als öffentliche Minisign-Datei verankert:
-        </p>
-        <div class="mono-box">
-          <span class="label">W3C Decentralized Identifier (did:key)</span>
-          did:key:z6Mkfw3iLzZZ5H7jsRKs9fx1x9Ve4AcMNQjor3KCY216P8fa
-        </div>
-        <div class="mono-box">
-          <span class="label">SHA-256 Prüfsumme (hafuedat_v1.9.9.5.5.xlsx)</span>
-          7c2d955c10581f57ea54aeb37a1ba7d8d9706b172885c6f85e28b12c7a4ace44
-        </div>
-        <div class="links-row">
-          <a class="text-link" href="https://hafuedat-core.github.io/minisign.pub">Öffentlicher Schlüssel (minisign.pub)</a>
-          <a class="text-link" href="https://hafuedat-core.github.io/hafuedat_v1.9.9.5.5.xlsx.sha256">SHA-256 Datei (.sha256)</a>
-          <a class="text-link" href="https://hafuedat-core.github.io/hafuedat_v1.9.9.5.5.xlsx.minisig">Minisign Signatur (.minisig)</a>
-          <a class="text-link" href="https://hafuedat-core.github.io/MANIFEST.sha256">Repository-Manifest (MANIFEST.sha256)</a>
-        </div>
-      </section>
+    <label for="releaseFile" style="display:block;font-size:0.86rem;color:var(--text);">Release-Datei (.xlsx):</label>
+    <input id="releaseFile" class="file-input" type="file">
 
-      <section class="section">
-        <h2>2. Direkt im Browser prüfen (ohne Installation)</h2>
-        <p>
-          Über die lokale Browser-Prüfseite wird deine heruntergeladene Datei <code>hafuedat_v1.9.9.5.5.xlsx</code> ausschließlich im Arbeitsspeicher deines Browsers gehasht und verifiziert – es findet kein Upload auf einen Server statt.
-        </p>
-        <a class="cta-btn" href="https://hafuedat-core.github.io/verify.html">
-          Lokale Browser-Prüfung öffnen →
-        </a>
-      </section>
+    <label for="checksumFile" style="display:block;font-size:0.86rem;color:var(--text);">Optional: Prüfsummendatei (.sha256):</label>
+    <input id="checksumFile" class="file-input" type="file" accept=".sha256,.txt,text/plain">
 
-      <section class="section">
-        <h2>3. Prüfung auf der Kommandozeile (Linux / Termux / macOS)</h2>
-        <p>
-          Wenn du Prüfsumme und Signatur direkt im Terminal gegenprüfen möchtest:
-        </p>
-        <pre class="code-block"># 1. SHA-256 Prüfsumme kontrollieren
-sha256sum hafuedat_v1.9.9.5.5.xlsx
-# Erwartet: 7c2d955c10581f57ea54aeb37a1ba7d8d9706b172885c6f85e28b12c7a4ace44
+    <div id="resultBox" class="status"></div>
 
-# 2. Ed25519-Signatur mit minisign gegen minisign.pub prüfen
+    <h2>2. Referenzwerte &amp; Vertrauensanker</h2>
+    <p><strong>Erwarteter SHA-256 (hafuedat_v1.9.9.5.5.xlsx):</strong></p>
+    <code id="expectedHash">7c2d955c10581f57ea54aeb37a1ba7d8d9706b172885c6f85e28b12c7a4ace44</code>
+
+    <p style="margin-top:12px;"><strong>W3C did:key:</strong></p>
+    <code>did:key:z6Mkfw3iLzZZ5H7jsRKs9fx1x9Ve4AcMNQjor3KCY216P8fa</code>
+
+    <h2>3. Prüfung im Terminal</h2>
+    <pre>sha256sum hafuedat_v1.9.9.5.5.xlsx
 minisign -Vm hafuedat_v1.9.9.5.5.xlsx -p minisign.pub</pre>
-      </section>
 
-      <section class="section">
-        <h2>4. Hinweis zum Hosting &amp; Datenschutz</h2>
-        <p style="margin-bottom:0;">
-          Diese Informationsseite wird statisch über GitHub Pages bereitgestellt und lädt keine externen Tracking- oder Werbeskripte. Beim Seitenabruf verarbeitet GitHub Inc. technisch erforderliche Verbindungsdaten (z. B. IP-Adresse) zur Auslieferung der statischen Dateien.
-        </p>
-      </section>
-    </main>
-
-    <footer>
-      HAFÜDAT Core · FinOS v1.9.9.5.5 · Zero-Trust Release-Verifikation · Kontakt: <a class="text-link" href="mailto:hafuedat@posteo.eu">hafuedat@posteo.eu</a>
-    </footer>
+    <div class="links">
+      <a href="https://hafuedat-core.github.io/pro.html">Zurück zu pro.html</a> ·
+      <a href="https://hafuedat-core.github.io/hafuedat_v1.9.9.5.5.xlsx.sha256">SHA-256 Datei</a> ·
+      <a href="https://hafuedat-core.github.io/hafuedat_v1.9.9.5.5.xlsx.minisig">Minisign Signatur</a> ·
+      <a href="https://hafuedat-core.github.io/minisign.pub">minisign.pub</a>
+    </div>
   </div>
+
+  <script>
+    const DEFAULT_EXPECTED_HASH = "7c2d955c10581f57ea54aeb37a1ba7d8d9706b172885c6f85e28b12c7a4ace44";
+    const releaseInput = document.getElementById("releaseFile");
+    const checksumInput = document.getElementById("checksumFile");
+    const resultBox = document.getElementById("resultBox");
+    const expectedHashEl = document.getElementById("expectedHash");
+
+    let customExpectedHash = null;
+
+    async function sha256Hex(file) {
+      const buffer = await file.arrayBuffer();
+      const digest = await crypto.subtle.digest("SHA-256", buffer);
+      return Array.from(new Uint8Array(digest))
+        .map((b) => b.toString(16).padStart(2, "0"))
+        .join("");
+    }
+
+    function parseChecksumText(text) {
+      const match = text.toLowerCase().match(/[a-f0-9]{64}/);
+      return match ? match[0] : null;
+    }
+
+    function setStatus(type, html) {
+      resultBox.className = "status " + type;
+      resultBox.innerHTML = html;
+    }
+
+    async function runVerification() {
+      const file = releaseInput.files && releaseInput.files[0];
+      if (!file) return;
+
+      setStatus("info", "Berechne SHA-256 lokal im Speicher...");
+      try {
+        const actual = (await sha256Hex(file)).toLowerCase();
+        const target = (customExpectedHash || DEFAULT_EXPECTED_HASH).toLowerCase();
+        const matches = actual === target;
+
+        if (matches) {
+          setStatus(
+            "ok",
+            `<strong>TREFFER – Integrität bestätigt</strong><br>` +
+            `Datei: <code>${file.name}</code> (${file.size.toLocaleString("de-DE")} Bytes)<br>` +
+            `SHA-256: <code>${actual}</code>`
+          );
+        } else {
+          setStatus(
+            "err",
+            `<strong>ABWEICHUNG – Prüfsumme stimmt nicht überein</strong><br>` +
+            `Datei: <code>${file.name}</code> (${file.size.toLocaleString("de-DE")} Bytes)<br>` +
+            `Berechnet: <code>${actual}</code><br>` +
+            `Erwartet:  <code>${target}</code>`
+          );
+        }
+      } catch (err) {
+        setStatus("err", `Fehler bei der lokalen Hash-Berechnung: ${err.message}`);
+      }
+    }
+
+    checksumInput.addEventListener("change", async () => {
+      const cFile = checksumInput.files && checksumInput.files[0];
+      if (!cFile) {
+        customExpectedHash = null;
+        expectedHashEl.textContent = DEFAULT_EXPECTED_HASH;
+        await runVerification();
+        return;
+      }
+      const text = await cFile.text();
+      const parsed = parseChecksumText(text);
+      if (parsed) {
+        customExpectedHash = parsed;
+        expectedHashEl.textContent = parsed;
+        setStatus("info", `Prüfsummendatei geladen (${cFile.name}). Wähle nun die Release-Datei oder prüfe direkt.`);
+        await runVerification();
+      } else {
+        setStatus("err", "In der ausgewählten Prüfsummendatei wurde kein gültiger 64-stelliger SHA-256-Hash gefunden.");
+      }
+    });
+
+    releaseInput.addEventListener("change", runVerification);
+  </script>
 </body>
 </html>
