@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HAFÜDAT PRO – FinOS v1.9.9.5.5 | Offline Household &amp; Budget System</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #9da7b3;
+      --accent: #38bdf8;
+      --accent-hover: #7dd3fc;
+      --btn-bg: #238636;
+      --btn-hover: #2ea043;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 1rem;
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .lang-switch select {
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .lang-switch select:focus {
+      outline: 2px solid var(--accent);
+      border-color: var(--accent);
+    }
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+    h1 {
+      font-size: 1.65rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+    h2 {
+      font-size: 1.2rem;
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+    }
+    p { margin: 0.6rem 0; }
+    ul {
+      padding-left: 1.25rem;
+      margin: 0.6rem 0;
+    }
+    li { margin-bottom: 0.45rem; }
+    a, a:visited {
+      color: var(--accent);
+      text-decoration: underline;
+      word-break: break-all;
+    }
+    a:hover { color: var(--accent-hover); }
+    .cta-btn {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 0.8rem 1.3rem;
+      background: var(--btn-bg);
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-weight: 600;
+      border-radius: 8px;
+      word-break: normal;
+    }
+    .cta-btn:hover { background: var(--btn-hover); }
+    .mono-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      word-break: break-all;
+      margin: 0.5rem 0;
+    }
+    .muted { color: var(--muted); font-size: 0.92rem; }
+  </style>
+  <script src="https://www.digistore24.com/service/digistore.js"></script>
+  <script>
+    if (typeof digistorePromocode === "function") {
+      digistorePromocode({ "product_id": 771941, "adjust_domain": true });
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div class="lang-switch">
+        <label for="lang-select">Language:</label>
+        <select id="lang-select" aria-label="Language" onchange="if (this.value) window.location.href = this.value;">
+          <option value="pro.html">Deutsch</option>
+          <option value="pro-en.html" selected>English</option>
+          <option value="pro-fr.html">Français</option>
+          <option value="pro-it.html">Italiano</option>
+          <option value="pro-es.html">Español</option>
+          <option value="pro-pl.html">Polski</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <h1>HAFÜDAT PRO – FinOS v1.9.9.5.5</h1>
+        <p><strong>100% Data Sovereignty for Your Daily Finances.</strong> Calculate your available daily and monthly budget (<em>“Safe-to-Spend”</em>) in seconds – completely offline in Excel/LibreOffice Calc or in your own private Google Sheets copy, without subscriptions, cloud lock-in, or macros.</p>
+        <ul>
+          <li><strong>3-Second Daily Entry (TAB 1 – INPUT):</strong> Smart date logic and clean separation of cash/ATM, wallet, bank card/transfer, debit/sub-accounts, and prepaid balances.</li>
+          <li><strong>Live Dashboard &amp; Monthly Rollover (TAB 2):</strong> Clear daily allowance, treasury/carryover logic, and safe month-end reset without touching formulas.</li>
+          <li><strong>Fixed Costs &amp; Smart-Logic (TAB 3):</strong> Recurring expenses with start/end periods (“From / Until”) so contracts automatically activate and expire on schedule.</li>
+          <li><strong>Basic Settings (TAB 4):</strong> Configure timezone, salary/payout days, explanation mode, and spreadsheet language in one place.</li>
+        </ul>
+        <p><strong>One-Time Price:</strong> 19.00 € (incl. statutory regulations / small business status § 19 UStG) with a <strong>60-day return policy</strong> via our reseller Digistore24.</p>
+        <a class="cta-btn" href="https://www.checkout-ds24.com/product/771941" target="_blank" rel="noopener noreferrer">Order HAFÜDAT PRO – FinOS v1.9.9.5.5 via Digistore24 (19.00 €)</a>
+      </section>
+
+      <section class="section" id="demos">
+        <h2>Short Demos (YouTube Shorts)</h2>
+        <p>Compact feature clips covering the four core workflows of <strong>HAFÜDAT PRO – FinOS v1.9.9.5.5</strong>:</p>
+        <ul>
+          <li><strong>Demo 1 – Setup &amp; Basic Configuration:</strong> <a href="https://youtube.com/shorts/m5nYroeK9o4" target="_blank" rel="noopener noreferrer">https://youtube.com/shorts/m5nYroeK9o4</a></li>
+          <li><strong>Demo 2 – Fixed Costs &amp; Smart-Logic:</strong> <a href="https://youtube.com/shorts/genCtvOIk4E" target="_blank" rel="noopener noreferrer">https://youtube.com/shorts/genCtvOIk4E</a></li>
+          <li><strong>Demo 3 – Daily Entry (INPUT):</strong> <a href="https://youtube.com/shorts/ueALrqYvTB8" target="_blank" rel="noopener noreferrer">https://youtube.com/shorts/ueALrqYvTB8</a></li>
+          <li><strong>Demo 4 – Dashboard &amp; Monthly Rollover:</strong> <a href="https://youtube.com/shorts/kJetAV3281M" target="_blank" rel="noopener noreferrer">https://youtube.com/shorts/kJetAV3281M</a></li>
+        </ul>
+      </section>
+
+      <section class="section" id="docs">
+        <h2>Quick Start Guide &amp; Documentation</h2>
+        <p>You can always find the up-to-date, complete multilingual Quick Start Guide (including technical architecture, monthly rollover instructions, and verification details) at the following link:</p>
+        <p><a href="https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html">https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html</a></p>
+      </section>
+
+      <section class="section" id="verification">
+        <h2>Cryptographic Integrity &amp; Provenance</h2>
+        <p>The integrity of the release file <code>hafuedat_v1.9.9.5.5.xlsx</code> can be verified independently using SHA-256, Ed25519 (<code>minisign</code>), and the W3C Decentralized Identifier:</p>
+        <div class="mono-box">
+          <strong>SHA-256 (hafuedat_v1.9.9.5.5.xlsx):</strong><br />
+          7c2d955c10581f57ea54aeb37a1ba7d8d9706b172885c6f85e28b12c7a4ace44
+        </div>
+        <div class="mono-box">
+          <strong>W3C did:key:</strong><br />
+          did:key:z6Mkfw3iLzZZ5H7jsRKs9fx1x9Ve4AcMNQjor3KCY216P8fa
+        </div>
+        <p>Browser-based local SHA-256 verification tool &amp; signature files: <a href="https://hafuedat-core.github.io/verifikation.html">https://hafuedat-core.github.io/verifikation.html</a></p>
+      </section>
+
+      <section class="section" id="legal">
+        <h2>Legal Notice &amp; Support</h2>
+        <p class="muted">
+          Payment processing and order fulfillment are handled by our reseller Digistore24 GmbH (60-day return policy).<br />
+          Vendor / Technical Support: <a href="mailto:hafuedat@posteo.eu">hafuedat@posteo.eu</a><br />
+          Note: Small business regulation pursuant to § 19 UStG (German VAT Act).
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
