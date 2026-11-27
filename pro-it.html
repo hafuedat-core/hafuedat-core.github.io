@@ -2,10 +2,194 @@
 <html lang="it">
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="refresh" content="0; url=pro-en.html" />
-  <title>HAFÜDAT PRO – FinOS v1.9.9.5.5</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HAFÜDAT PRO – FinOS v1.9.9.5.5 | Sistema di budget offline</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #9da7b3;
+      --accent: #38bdf8;
+      --accent-hover: #7dd3fc;
+      --btn-bg: #238636;
+      --btn-hover: #2ea043;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 1rem;
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .lang-switch select {
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .lang-switch select:focus {
+      outline: 2px solid var(--accent);
+      border-color: var(--accent);
+    }
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+    h1 {
+      font-size: 1.65rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+    h2 {
+      font-size: 1.2rem;
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+    }
+    p { margin: 0.6rem 0; }
+    ul {
+      padding-left: 1.25rem;
+      margin: 0.6rem 0;
+    }
+    li { margin-bottom: 0.45rem; }
+    a, a:visited {
+      color: var(--accent);
+      text-decoration: underline;
+      word-break: break-all;
+    }
+    a:hover { color: var(--accent-hover); }
+    .cta-btn {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 0.8rem 1.3rem;
+      background: var(--btn-bg);
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-weight: 600;
+      border-radius: 8px;
+      word-break: normal;
+    }
+    .cta-btn:hover { background: var(--btn-hover); }
+    .mono-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      word-break: break-all;
+      margin: 0.5rem 0;
+    }
+    .muted { color: var(--muted); font-size: 0.92rem; }
+  </style>
+  <script src="https://www.digistore24.com/service/digistore.js"></script>
+  <script>
+    if (typeof digistorePromocode === "function") {
+      digistorePromocode({ "product_id": 771941, "adjust_domain": true });
+    }
+  </script>
 </head>
-<body style="background:#0d1117;color:#e6edf3;font-family:sans-serif;padding:2rem;">
-  <p>Redirecting to <a href="pro-en.html" style="color:#38bdf8;">pro-en.html</a> …</p>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div class="lang-switch">
+        <label for="lang-select">Lingua:</label>
+        <select id="lang-select" aria-label="Lingua" onchange="if (this.value) window.location.href = this.value;">
+          <option value="pro.html">Deutsch</option>
+          <option value="pro-en.html">English</option>
+          <option value="pro-fr.html">Français</option>
+          <option value="pro-it.html" selected>Italiano</option>
+          <option value="pro-es.html">Español</option>
+          <option value="pro-pl.html">Polski</option>
+        </select>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <h1>HAFÜDAT PRO – FinOS v1.9.9.5.5</h1>
+        <p><strong>100 % di sovranità sui dati per le tue finanze quotidiane.</strong> Calcola in pochi secondi il tuo budget giornaliero e mensile disponibile (<em>«Safe-to-Spend»</em>) – completamente offline in Excel/LibreOffice Calc o nella tua copia privata di Google Sheets, senza abbonamenti, senza vincoli cloud e senza macro.</p>
+        <ul>
+          <li><strong>Inserimento quotidiano in 3 secondi (SCHEDA 1 – INPUT):</strong> logica intelligente della data e separazione chiara tra prelievo/contanti, portafoglio, carta/bonifico, addebito diretto/sottoconti e saldi prepagati.</li>
+          <li><strong>Dashboard &amp; cambio mese (SCHEDA 2):</strong> budget giornaliero chiaro, logica di cassaforte/riporto e azzeramento mensile sicuro senza toccare le formule.</li>
+          <li><strong>Costi fissi &amp; Smart-Logic (SCHEDA 3):</strong> spese ricorrenti con intervalli «Dal / Al» affinché i contratti si attivino e scadano automaticamente.</li>
+          <li><strong>Impostazioni di base (SCHEDA 4):</strong> configura fuso orario, giorni di accredito, modalità di spiegazione e lingua del foglio in un unico punto.</li>
+        </ul>
+        <p><strong>Prezzo una tantum:</strong> 19,00 € (regime delle piccole imprese ai sensi del § 19 UStG) con <strong>60 giorni di diritto di recesso</strong> tramite il nostro rivenditore Digistore24.</p>
+        <a class="cta-btn" href="https://www.checkout-ds24.com/product/771941" target="_blank" rel="noopener noreferrer">Ordina HAFÜDAT PRO – FinOS v1.9.9.5.5 su Digistore24 (19,00 €)</a>
+      </section>
+
+      <section class="section" id="demos">
+        <h2>Brevi demo (YouTube Shorts)</h2>
+        <p>Clip compatte dedicate ai quattro flussi principali di <strong>HAFÜDAT PRO – FinOS v1.9.9.5.5</strong>:</p>
+        <ul>
+          <li><strong>Demo 1 – Configurazione iniziale &amp; impostazioni di base:</strong> <a href="https://youtube.com/shorts/m5nYroeK9o4" target="_blank" rel="noopener noreferrer">https://youtube.com/shorts/m5nYroeK9o4</a></li>
+          <li><strong>Demo 2 – Costi fissi &amp; Smart-Logic:</strong> <a href="https://youtube.com/shorts/genCtvOIk4E" target="_blank" rel="noopener noreferrer">https://youtube.com/shorts/genCtvOIk4E</a></li>
+          <li><strong>Demo 3 – Inserimento quotidiano (INPUT):</strong> <a href="https://youtube.com/shorts/ueALrqYvTB8" target="_blank" rel="noopener noreferrer">https://youtube.com/shorts/ueALrqYvTB8</a></li>
+          <li><strong>Demo 4 – Dashboard &amp; cambio mese:</strong> <a href="https://youtube.com/shorts/kJetAV3281M" target="_blank" rel="noopener noreferrer">https://youtube.com/shorts/kJetAV3281M</a></li>
+        </ul>
+      </section>
+
+      <section class="section" id="docs">
+        <h2>Guida rapida &amp; documentazione</h2>
+        <p>Trovi sempre aggiornata la Guida rapida completa e multilingue (inclusi architettura tecnica, istruzioni per il passaggio mensile e indicazioni di verifica) al seguente link:</p>
+        <p><a href="https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html">https://hafuedat-core.github.io/QUICKSTARTGUIDE1.9.9.5.5.html</a></p>
+      </section>
+
+      <section class="section" id="verification">
+        <h2>Integrità crittografica &amp; provenienza</h2>
+        <p>L’integrità del file di rilascio <code>hafuedat_v1.9.9.5.5.xlsx</code> può essere verificata in modo indipendente tramite SHA-256, Ed25519 (<code>minisign</code>) e l’identificatore decentralizzato W3C:</p>
+        <div class="mono-box">
+          <strong>SHA-256 (hafuedat_v1.9.9.5.5.xlsx):</strong><br />
+          7c2d955c10581f57ea54aeb37a1ba7d8d9706b172885c6f85e28b12c7a4ace44
+        </div>
+        <div class="mono-box">
+          <strong>W3C did:key:</strong><br />
+          did:key:z6Mkfw3iLzZZ5H7jsRKs9fx1x9Ve4AcMNQjor3KCY216P8fa
+        </div>
+        <p>Strumento locale di verifica SHA-256 nel browser &amp; file di firma: <a href="https://hafuedat-core.github.io/verifikation.html">https://hafuedat-core.github.io/verifikation.html</a></p>
+      </section>
+
+      <section class="section" id="legal">
+        <h2>Note legali &amp; supporto</h2>
+        <p class="muted">
+          L’elaborazione dei pagamenti e l’evasione dell’ordine sono gestite dal nostro rivenditore Digistore24 GmbH (diritto di recesso di 60 giorni).<br />
+          Venditore / Supporto tecnico: <a href="mailto:hafuedat@posteo.eu">hafuedat@posteo.eu</a><br />
+          Avviso: regime delle piccole imprese ai sensi del § 19 UStG.
+        </p>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
