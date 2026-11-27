@@ -212,6 +212,13 @@
   #demos a, #demos a:visited { color: #38bdf8; text-decoration: underline; word-break: break-all; }
   #demos a:hover { color: #7dd3fc; }
 </style>
+
+<style>
+  .topbar { display: flex; justify-content: flex-end; align-items: center; margin-bottom: 1rem; }
+  .lang-switch { display: inline-flex; align-items: center; gap: 0.5rem; background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 0.4rem 0.75rem; font-size: 0.9rem; color: #9da7b3; }
+  .lang-switch select { background: #0d1117; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 0.3rem 0.5rem; font-size: 0.9rem; cursor: pointer; }
+  .lang-switch select:focus { outline: 2px solid #38bdf8; border-color: #38bdf8; }
+</style>
 </head>
 <body>
   <div class="wrap">
@@ -220,6 +227,8 @@
     </header>
 
     <main>
+<header class="topbar"><div class="lang-switch"><label for="lang-select">Sprache:</label><select id="lang-select" aria-label="Sprache" onchange="if (this.value) window.location.href = this.value;"><option value="pro.html" selected>Deutsch</option><option value="pro-en.html">English</option><option value="pro-fr.html">Français</option><option value="pro-it.html">Italiano</option><option value="pro-es.html">Español</option><option value="pro-pl.html">Polski</option></select></div></header>
+
       <section class="hero">
         <div class="badge">Einmalkauf · Lokal &amp; Offline · Makrofrei</div>
         <h1>Klarheit auf den ersten Blick: Dein persönlicher Finanzüberblick für jeden Tag.</h1>
